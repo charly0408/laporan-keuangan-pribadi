@@ -1,0 +1,3101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Keuanganku" />
+  <title>Laporan Keuangan Pribadi — Aset, Penghasilan, Pos Tabungan &amp; Piutang</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%232563eb%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230ea5e9%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22url%28%23bg%29%22/%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2228%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%2296%22%20y%3D%22148%22%20width%3D%22320%22%20height%3D%22224%22%20rx%3D%2232%22/%3E%3Cpath%20d%3D%22M96%20220h320%22/%3E%3Cpath%20d%3D%22M164%20296h48%22/%3E%3Cpath%20d%3D%22M260%20296h88%22/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%232563eb%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%230ea5e9%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22url%28%23bg%29%22/%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2228%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%2296%22%20y%3D%22148%22%20width%3D%22320%22%20height%3D%22224%22%20rx%3D%2232%22/%3E%3Cpath%20d%3D%22M96%20220h320%22/%3E%3Cpath%20d%3D%22M164%20296h48%22/%3E%3Cpath%20d%3D%22M260%20296h88%22/%3E%3C/g%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --background: #f8fafc;
+      --content: #ffffff;
+      --card: #ffffff;
+      --sidebar: #f1f5f9;
+      --border: #e2e8f0;
+      --card-border: #e2e8f0;
+      --foreground: #0f172a;
+      --muted-foreground: #64748b;
+      --placeholder: #94a3b8;
+      --primary: #2563eb;
+      --primary-foreground: #ffffff;
+      --secondary: #f1f5f9;
+      --secondary-foreground: #0f172a;
+      --accent: #eff6ff;
+      --link: #2563eb;
+      --success: #059669;
+      --warning: #d97706;
+      --error: #dc2626;
+      --chart-1: #2563eb;
+      --chart-2: #059669;
+      --chart-3: #d97706;
+      --chart-4: #7c3aed;
+      --chart-5: #e11d48;
+      --chart-6: #0891b2;
+    }
+    :root[data-theme="dark"] {
+      --background: #0b1120;
+      --content: #0f172a;
+      --card: #111827;
+      --sidebar: #0f172a;
+      --border: #1f2937;
+      --card-border: #1f2937;
+      --foreground: #f1f5f9;
+      --muted-foreground: #94a3b8;
+      --placeholder: #64748b;
+      --primary: #3b82f6;
+      --primary-foreground: #ffffff;
+      --secondary: #1e293b;
+      --secondary-foreground: #f1f5f9;
+      --accent: #1e3a8a;
+      --link: #60a5fa;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #f43f5e;
+      --chart-1: #3b82f6;
+      --chart-2: #10b981;
+      --chart-3: #f59e0b;
+      --chart-4: #a78bfa;
+      --chart-5: #fb7185;
+      --chart-6: #22d3ee;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    dialog {
+      max-height: 90dvh;
+      overflow-y: auto;
+      margin: auto;
+    }
+    @media (max-width: 640px) {
+      input, select, textarea { font-size: 16px !important; }
+      dialog { width: calc(100% - 1.25rem) !important; }
+    }
+    .mobile-nav-btn[aria-selected="true"] {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .mobile-nav-btn[aria-selected="false"] {
+      color: var(--muted-foreground);
+    }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+    }
+    .nav-tab[aria-selected="true"] {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+    .nav-tab[aria-selected="false"] {
+      color: var(--muted-foreground);
+    }
+    .nav-tab[aria-selected="false"]:hover {
+      background-color: var(--secondary);
+      color: var(--secondary-foreground);
+    }
+    .auth-tab[aria-selected="true"] {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+    .auth-tab[aria-selected="false"] {
+      color: var(--muted-foreground);
+    }
+    .progress-track {
+      background-color: var(--secondary);
+    }
+  </style>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased m-0 p-0 min-h-screen">
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-20 sm:bottom-5 right-4 sm:right-5 z-50 hidden max-w-sm px-4 py-2.5 rounded-xl bg-[var(--card)] border border-[var(--border)] shadow-lg text-xs font-medium flex items-center gap-2">
+    <span id="toast-dot" class="w-2 h-2 rounded-full bg-[var(--success)] shrink-0"></span>
+    <span id="toast-msg"></span>
+  </div>
+
+  <!-- ==================== AUTH SCREEN ==================== -->
+  <section id="auth-screen" class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md rounded-2xl bg-[var(--card)] border border-[var(--border)] p-6 shadow-xl space-y-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-[var(--primary)] text-[var(--primary-foreground)] flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight">Laporan Keuangan Pribadi</h1>
+          <p class="text-xs text-[var(--muted-foreground)]">Kelola aset, pembagian gaji, biaya hidup &amp; piutang</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 p-1 rounded-xl bg-[var(--background)] border border-[var(--border)] gap-1 text-xs">
+        <button id="auth-tab-login" type="button" class="auth-tab py-2 rounded-lg font-medium transition cursor-pointer" aria-selected="true">Masuk</button>
+        <button id="auth-tab-register" type="button" class="auth-tab py-2 rounded-lg font-medium transition cursor-pointer" aria-selected="false">Daftar Akun Baru</button>
+      </div>
+
+      <div id="auth-error" class="hidden p-2.5 rounded-lg border border-[var(--error)] text-[var(--error)] text-xs"></div>
+
+      <!-- LOGIN FORM -->
+      <form id="form-login" class="space-y-3.5 text-xs">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Username</label>
+          <input id="login-username" required autocomplete="username" type="text" placeholder="Masukkan username" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Password / PIN</label>
+          <input id="login-password" required autocomplete="current-password" type="password" placeholder="Masukkan password" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)]" />
+        </div>
+        <label class="flex items-center gap-2 text-[var(--muted-foreground)] cursor-pointer select-none">
+          <input id="login-remember" type="checkbox" checked class="accent-[var(--primary)]" />
+          <span>Tetap masuk di browser ini</span>
+        </label>
+        <button type="submit" class="w-full py-2.5 rounded-lg font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition cursor-pointer">
+          Masuk ke Dashboard
+        </button>
+
+        <div class="pt-3 border-t border-[var(--border)] space-y-2">
+          <div class="flex items-center justify-between text-[var(--muted-foreground)]">
+            <span>Ingin langsung mencoba dengan data contoh?</span>
+          </div>
+          <button id="btn-demo-login" type="button" class="w-full py-2 rounded-lg font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] hover:opacity-90 transition cursor-pointer">
+            Masuk Akun Demo (demo / demo123)
+          </button>
+        </div>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="form-register" class="hidden space-y-3.5 text-xs">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Nama Lengkap</label>
+          <input id="reg-fullname" required type="text" placeholder="Contoh: Andi Pratama" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Username</label>
+          <input id="reg-username" required type="text" placeholder="Huruf kecil / angka tanpa spasi" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)]" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[var(--muted-foreground)] mb-1">Password / PIN</label>
+            <input id="reg-password" required minlength="4" type="password" placeholder="Min. 4 karakter" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)]" />
+          </div>
+          <div>
+            <label class="block text-[var(--muted-foreground)] mb-1">Ulangi Password</label>
+            <input id="reg-confirm" required minlength="4" type="password" placeholder="Ketik ulang" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)]" />
+          </div>
+        </div>
+        <label class="flex items-center gap-2 text-[var(--muted-foreground)] cursor-pointer select-none">
+          <input id="reg-with-sample" type="checkbox" class="accent-[var(--primary)]" />
+          <span>Isi awal dengan data contoh (bisa dihapus kapan saja)</span>
+        </label>
+        <button type="submit" class="w-full py-2.5 rounded-lg font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition cursor-pointer">
+          Buat Akun &amp; Masuk
+        </button>
+      </form>
+
+      <p class="text-xs text-[var(--muted-foreground)] text-center pt-1">
+        Data disimpan terpisah per akun secara lokal di browser Anda. Gunakan fitur Ekspor JSON secara berkala untuk cadangan.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN APP SHELL ==================== -->
+  <div id="app-shell" class="hidden max-w-6xl mx-auto px-3.5 sm:px-6 pt-4 pb-24 sm:py-5 space-y-5">
+
+    <!-- Header -->
+    <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[var(--border)]">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)] flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight">Laporan Keuangan Pribadi</h1>
+          <p class="text-xs text-[var(--muted-foreground)]">
+            Halo, <strong id="header-user-name" class="text-[var(--foreground)]">Pengguna</strong> &middot; Pantau aset, 5 pos tabungan, biaya hidup &amp; piutang
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="btn-quick-salary" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          Terima Gaji / Penghasilan
+        </button>
+        <button id="btn-quick-expense" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] hover:opacity-90 transition cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>
+          Catat Pengeluaran
+        </button>
+        <button id="btn-quick-receivable" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--secondary)] transition cursor-pointer">
+          + Piutang
+        </button>
+
+        <button id="btn-theme-toggle" type="button" title="Ganti Mode Terang / Gelap" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--secondary)] transition cursor-pointer" aria-label="Ganti Tema">
+          <span id="theme-icon">🌙</span>
+        </button>
+
+        <!-- Data & Account Menu -->
+        <div class="relative">
+          <button id="btn-data-menu" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--secondary)] transition cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+            Akun &amp; Data
+          </button>
+          <div id="data-menu" class="hidden absolute right-0 mt-1.5 w-52 rounded-xl bg-[var(--card)] border border-[var(--border)] shadow-lg py-1.5 z-30 text-xs">
+            <div class="px-3 py-1.5 border-b border-[var(--border)] text-[var(--muted-foreground)]">
+              Akun: <strong id="menu-username" class="text-[var(--foreground)]">-</strong>
+            </div>
+            <button id="btn-change-password" class="w-full text-left px-3 py-2 hover:bg-[var(--secondary)] cursor-pointer">Ubah Password / PIN</button>
+            <div class="my-1 border-t border-[var(--border)]"></div>
+            <button id="btn-export-json" class="w-full text-left px-3 py-2 hover:bg-[var(--secondary)] cursor-pointer">Ekspor Backup (.json)</button>
+            <button id="btn-export-csv" class="w-full text-left px-3 py-2 hover:bg-[var(--secondary)] cursor-pointer">Ekspor Laporan (.csv)</button>
+            <label class="block w-full text-left px-3 py-2 hover:bg-[var(--secondary)] cursor-pointer">
+              Impor Backup (.json)
+              <input id="input-import-json" type="file" accept=".json" class="hidden" />
+            </label>
+            <div class="my-1 border-t border-[var(--border)]"></div>
+            <button id="btn-load-sample" class="w-full text-left px-3 py-2 hover:bg-[var(--secondary)] cursor-pointer">Muat Data Contoh</button>
+            <button id="btn-clear-data" class="w-full text-left px-3 py-2 text-[var(--error)] hover:bg-[var(--secondary)] cursor-pointer">Kosongkan Data Akun</button>
+            <div class="my-1 border-t border-[var(--border)]"></div>
+            <button id="btn-logout" class="w-full text-left px-3 py-2 font-medium text-[var(--error)] hover:bg-[var(--secondary)] cursor-pointer">Keluar (Logout)</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs & Year Filter -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <nav class="hidden sm:inline-flex flex-wrap p-1 rounded-xl bg-[var(--card)] border border-[var(--border)] gap-1 self-start" role="tablist">
+        <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer" data-tab="overview" aria-selected="true">Ringkasan</button>
+        <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer" data-tab="buckets" aria-selected="false">5 Pos Tabungan</button>
+        <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer" data-tab="expenses" aria-selected="false">Biaya Hidup</button>
+        <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer" data-tab="income" aria-selected="false">Penghasilan</button>
+        <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer" data-tab="receivables" aria-selected="false">Piutang</button>
+        <button class="nav-tab px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer" data-tab="assets" aria-selected="false">Aset Lainnya</button>
+      </nav>
+
+      <div class="flex items-center gap-2 text-xs">
+        <select id="filter-year" class="px-2.5 py-1.5 rounded-lg bg-[var(--card)] border border-[var(--border)] text-xs text-[var(--foreground)] cursor-pointer"></select>
+      </div>
+    </div>
+
+    <!-- Top KPI Cards -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+      <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-1">
+        <div class="flex items-center justify-between text-xs text-[var(--muted-foreground)]">
+          <span>Total Kekayaan &amp; Aset</span>
+          <span class="w-2 h-2 rounded-full bg-[var(--chart-1)]"></span>
+        </div>
+        <div id="kpi-net-worth" class="text-xl font-bold tabular-nums">Rp 0</div>
+        <div id="kpi-net-worth-sub" class="text-xs text-[var(--muted-foreground)] truncate">Pos Tabungan + Aset + Piutang</div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-1.5">
+        <div class="flex items-center justify-between text-xs text-[var(--muted-foreground)]">
+          <span>Sisa Biaya Hidup</span>
+          <button onclick="openExpenseModal()" class="text-[var(--link)] hover:underline cursor-pointer">+ Pakai</button>
+        </div>
+        <div id="kpi-living-balance" class="text-xl font-bold tabular-nums">Rp 0</div>
+        <div class="w-full h-1.5 rounded-full progress-track overflow-hidden">
+          <div id="kpi-living-bar" class="h-full rounded-full transition-all" style="width: 0%; background: var(--success);"></div>
+        </div>
+        <div id="kpi-living-sub" class="text-xs text-[var(--muted-foreground)]">Terpakai bulan ini: Rp 0</div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-1">
+        <div class="flex items-center justify-between text-xs text-[var(--muted-foreground)]">
+          <span>Piutang Belum Lunas</span>
+          <span class="w-2 h-2 rounded-full bg-[var(--warning)]"></span>
+        </div>
+        <div id="kpi-receivables" class="text-xl font-bold tabular-nums">Rp 0</div>
+        <div id="kpi-receivables-sub" class="text-xs text-[var(--muted-foreground)]">0 debitur aktif</div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-1">
+        <div class="flex items-center justify-between text-xs text-[var(--muted-foreground)]">
+          <span id="kpi-year-income-label">Penghasilan (2026)</span>
+          <span class="w-2 h-2 rounded-full bg-[var(--chart-2)]"></span>
+        </div>
+        <div id="kpi-year-income" class="text-xl font-bold tabular-nums">Rp 0</div>
+        <div id="kpi-year-income-sub" class="text-xs text-[var(--muted-foreground)]">Rata-rata: Rp 0 / bln</div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 1: OVERVIEW ==================== -->
+    <main id="tab-overview" class="space-y-5">
+      <!-- 5 Pos Tabungan Strip -->
+      <section class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-sm font-semibold">Saldo 5 Pos Tabungan Gaji</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Otomatis bertambah saat terima gaji; Pos Biaya Hidup otomatis berkurang saat catat pengeluaran</p>
+          </div>
+          <button onclick="switchTab('buckets')" class="text-xs text-[var(--link)] hover:underline cursor-pointer shrink-0">Atur pembagian &rarr;</button>
+        </div>
+        <div id="overview-buckets-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3"></div>
+      </section>
+
+      <!-- Charts -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="lg:col-span-5 p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] flex flex-col">
+          <div class="mb-3">
+            <h2 class="text-sm font-semibold">Komposisi Kekayaan</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Pos tabungan, aset lainnya &amp; piutang aktif</p>
+          </div>
+          <div class="flex-1 flex flex-col sm:flex-row items-center gap-4">
+            <div class="relative w-44 h-44 shrink-0">
+              <canvas id="chart-wealth" width="176" height="176"></canvas>
+              <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center px-3">
+                <span class="text-xs text-[var(--muted-foreground)]">Total</span>
+                <span id="donut-center-total" class="text-xs font-bold tabular-nums">Rp 0</span>
+              </div>
+            </div>
+            <div id="wealth-legend" class="w-full space-y-2 text-xs"></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] flex flex-col">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div>
+              <h2 class="text-sm font-semibold">Penghasilan vs Pengeluaran Biaya Hidup</h2>
+              <p id="cashflow-chart-subtitle" class="text-xs text-[var(--muted-foreground)]">Perbandingan per bulan</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+              <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[var(--chart-1)]"></span>Penghasilan</span>
+              <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-[var(--chart-5)]"></span>Biaya Hidup</span>
+            </div>
+          </div>
+          <div id="chart-hover-info" class="text-xs font-medium text-[var(--primary)] tabular-nums min-h-[1rem] mb-1"></div>
+          <div class="w-full h-52 relative">
+            <canvas id="chart-cashflow" class="w-full h-full"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Lists -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-semibold">Pengeluaran Biaya Hidup Terbaru</h2>
+            <button class="text-xs text-[var(--link)] hover:underline cursor-pointer" onclick="switchTab('expenses')">Lihat semua &rarr;</button>
+          </div>
+          <div id="overview-recent-expenses" class="divide-y divide-[var(--border)] text-xs"></div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-semibold">Piutang Aktif (Belum Lunas)</h2>
+            <button class="text-xs text-[var(--link)] hover:underline cursor-pointer" onclick="switchTab('receivables')">Kelola piutang &rarr;</button>
+          </div>
+          <div id="overview-active-receivables" class="divide-y divide-[var(--border)] text-xs"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== TAB 2: 5 POS TABUNGAN ==================== -->
+    <main id="tab-buckets" class="hidden space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-sm font-semibold">5 Pos Tabungan Pembagian Gaji</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">Total saldo seluruh pos: <strong id="buckets-grand-total" class="text-[var(--foreground)] tabular-nums">Rp 0</strong></p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="openBucketTxnModal()" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--card)] border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">
+            Catat Mutasi / Transfer Antar Pos
+          </button>
+          <button onclick="openIncomeModal(true)" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">
+            + Terima Gaji &amp; Bagi Sekarang
+          </button>
+        </div>
+      </div>
+
+      <!-- 5 Bucket Detail Cards -->
+      <div id="buckets-detail-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+      <!-- Salary Split Rules Configuration -->
+      <section class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[var(--border)]">
+          <div>
+            <h3 class="text-sm font-semibold">Aturan Pembagian Gaji Otomatis</h3>
+            <p class="text-xs text-[var(--muted-foreground)]">Digunakan otomatis saat Anda mencatat gaji. Tetap bisa disesuaikan setiap kali input gaji.</p>
+          </div>
+          <div class="inline-flex rounded-lg bg-[var(--background)] border border-[var(--border)] p-0.5 text-xs self-start">
+            <button type="button" id="rule-mode-percent" class="px-3 py-1 rounded-md font-medium cursor-pointer">Persentase (%)</button>
+            <button type="button" id="rule-mode-fixed" class="px-3 py-1 rounded-md font-medium cursor-pointer">Nominal Tetap (Rp)</button>
+          </div>
+        </div>
+
+        <form id="form-allocation-rule" class="space-y-4 text-xs">
+          <div id="rule-inputs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3"></div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-[var(--border)]">
+            <div id="rule-summary-text" class="text-xs font-medium"></div>
+            <div class="flex items-center gap-2">
+              <label class="text-[var(--muted-foreground)] flex items-center gap-1.5">
+                Simulasi Gaji:
+                <input id="rule-sim-salary" type="number" min="0" step="1" value="10000000" class="w-32 px-2.5 py-1 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums" />
+              </label>
+              <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">
+                Simpan Aturan
+              </button>
+            </div>
+          </div>
+          <div id="rule-sim-preview" class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-xs"></div>
+        </form>
+      </section>
+
+      <!-- Bucket Ledger History -->
+      <section class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <h3 class="text-sm font-semibold">Riwayat Mutasi &amp; Pemakaian Pos Tabungan</h3>
+          <select id="filter-bucket-ledger" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+            <option value="ALL">Semua Pos Tabungan</option>
+          </select>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2 pr-3 font-medium">Tanggal</th>
+                <th class="py-2 px-3 font-medium">Pos Tabungan</th>
+                <th class="py-2 px-3 font-medium">Keterangan</th>
+                <th class="py-2 px-3 font-medium text-right">Nominal</th>
+                <th class="py-2 pl-3 font-medium text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="bucket-ledger-body" class="divide-y divide-[var(--border)]"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== TAB 3: PENGELUARAN BIAYA HIDUP ==================== -->
+    <main id="tab-expenses" class="hidden space-y-4">
+      <!-- Biaya Hidup Status Banner -->
+      <section class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-3">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="text-xs text-[var(--muted-foreground)]">Sisa Saldo Pos Biaya Hidup Saat Ini</div>
+            <div id="exp-remaining-big" class="text-2xl font-bold tabular-nums">Rp 0</div>
+            <div id="exp-formula-hint" class="text-xs text-[var(--muted-foreground)]">Total masuk Rp 0 &minus; Total pengeluaran Rp 0</div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 text-xs">
+            <div class="px-3.5 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+              <div class="text-[var(--muted-foreground)]">Pengeluaran Bulan Ini</div>
+              <div id="exp-this-month" class="font-bold tabular-nums text-[var(--error)]">Rp 0</div>
+            </div>
+            <div class="px-3.5 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+              <div class="text-[var(--muted-foreground)]">Total Pengeluaran (<span id="exp-year-lbl">2026</span>)</div>
+              <div id="exp-this-year" class="font-bold tabular-nums">Rp 0</div>
+            </div>
+            <button onclick="openExpenseModal()" class="px-4 py-2.5 rounded-lg font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">
+              + Catat Pengeluaran
+            </button>
+          </div>
+        </div>
+        <div class="w-full h-2 rounded-full progress-track overflow-hidden">
+          <div id="exp-progress-bar" class="h-full rounded-full transition-all" style="width: 0%; background: var(--success);"></div>
+        </div>
+      </section>
+
+      <!-- Category Breakdown + Table -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="lg:col-span-4 p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-3">
+          <h3 class="text-sm font-semibold">Pengeluaran per Kategori</h3>
+          <div id="expense-category-bars" class="space-y-2.5 text-xs"></div>
+        </div>
+
+        <div class="lg:col-span-8 p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <input id="search-expenses" type="text" placeholder="Cari pengeluaran..." class="px-3 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs w-44" />
+              <select id="filter-expense-cat" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+                <option value="ALL">Semua Kategori</option>
+              </select>
+              <select id="filter-expense-month" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+                <option value="ALL">Semua Bulan</option>
+              </select>
+            </div>
+            <div class="text-xs text-[var(--muted-foreground)]">
+              Subtotal: <strong id="expenses-filtered-total" class="text-[var(--foreground)] tabular-nums">Rp 0</strong>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                  <th class="py-2 pr-3 font-medium">Tanggal</th>
+                  <th class="py-2 px-3 font-medium">Keperluan</th>
+                  <th class="py-2 px-3 font-medium">Kategori</th>
+                  <th class="py-2 px-3 font-medium text-right">Nominal</th>
+                  <th class="py-2 pl-3 font-medium text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="expenses-table-body" class="divide-y divide-[var(--border)]"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== TAB 4: PENGHASILAN ==================== -->
+    <main id="tab-income" class="hidden space-y-4">
+      <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <input id="search-income" type="text" placeholder="Cari sumber penghasilan..." class="px-3 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs w-48" />
+            <select id="filter-income-cat" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+              <option value="ALL">Semua Kategori</option>
+            </select>
+            <select id="filter-income-month" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+              <option value="ALL">Semua Bulan</option>
+            </select>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-[var(--muted-foreground)]">
+              Subtotal: <strong id="income-filtered-total" class="text-[var(--foreground)] tabular-nums">Rp 0</strong>
+            </span>
+            <button onclick="openIncomeModal(true)" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">+ Tambah</button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2.5 pr-3 font-medium">Tanggal</th>
+                <th class="py-2.5 px-3 font-medium">Sumber &amp; Pembagian Pos</th>
+                <th class="py-2.5 px-3 font-medium">Kategori</th>
+                <th class="py-2.5 px-3 font-medium text-right">Jumlah</th>
+                <th class="py-2.5 pl-3 font-medium text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="income-table-body" class="divide-y divide-[var(--border)]"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== TAB 5: PIUTANG ==================== -->
+    <main id="tab-receivables" class="hidden space-y-4">
+      <section class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
+        <div class="p-3.5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+          <div class="text-[var(--muted-foreground)]">Total Piutang Dicatat</div>
+          <div id="rec-sum-total" class="text-lg font-bold tabular-nums mt-0.5">Rp 0</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+          <div class="text-[var(--muted-foreground)]">Sudah Diterima Kembali</div>
+          <div id="rec-sum-paid" class="text-lg font-bold tabular-nums text-[var(--success)] mt-0.5">Rp 0</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-[var(--card)] border border-[var(--border)]">
+          <div class="text-[var(--muted-foreground)]">Sisa Piutang Belum Lunas</div>
+          <div id="rec-sum-remaining" class="text-lg font-bold tabular-nums text-[var(--warning)] mt-0.5">Rp 0</div>
+        </div>
+      </section>
+
+      <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <input id="search-receivables" type="text" placeholder="Cari nama peminjam..." class="px-3 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs w-48" />
+            <select id="filter-rec-status" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+              <option value="ALL">Semua Status</option>
+              <option value="ACTIVE">Belum Lunas &amp; Cicilan</option>
+              <option value="Belum Lunas">Belum Lunas</option>
+              <option value="Cicilan">Cicilan</option>
+              <option value="Lunas">Lunas</option>
+            </select>
+          </div>
+          <button onclick="openReceivableModal()" class="px-3.5 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer self-start sm:self-auto">
+            + Tambah Piutang
+          </button>
+        </div>
+
+        <div id="receivables-list" class="space-y-3"></div>
+      </div>
+    </main>
+
+    <!-- ==================== TAB 6: ASET LAINNYA ==================== -->
+    <main id="tab-assets" class="hidden space-y-4">
+      <div class="p-3.5 rounded-xl bg-[var(--card)] border border-[var(--border)] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+        <div>
+          <span class="text-[var(--muted-foreground)]">Saldo 5 Pos Tabungan Gaji:</span>
+          <strong id="assets-tab-buckets-sum" class="ml-1 tabular-nums">Rp 0</strong>
+          <span class="mx-2 text-[var(--muted-foreground)]">&middot;</span>
+          <span class="text-[var(--muted-foreground)]">Aset Lainnya:</span>
+          <strong id="assets-tab-other-sum" class="ml-1 tabular-nums">Rp 0</strong>
+          <span class="mx-2 text-[var(--muted-foreground)]">&middot;</span>
+          <span class="text-[var(--muted-foreground)]">Piutang Aktif:</span>
+          <strong id="assets-tab-rec-sum" class="ml-1 tabular-nums">Rp 0</strong>
+        </div>
+        <button onclick="openAssetModal()" class="px-3 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer self-start sm:self-auto">
+          + Tambah Aset Lainnya
+        </button>
+      </div>
+
+      <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <input id="search-assets" type="text" placeholder="Cari nama aset..." class="px-3 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs w-48" />
+            <select id="filter-asset-cat" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+              <option value="ALL">Semua Kategori</option>
+            </select>
+            <select id="filter-asset-liq" class="px-2.5 py-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs">
+              <option value="ALL">Semua Likuiditas</option>
+              <option value="Likuid">Likuid</option>
+              <option value="Semi-Likuid">Semi-Likuid</option>
+              <option value="Tidak Likuid">Tidak Likuid</option>
+            </select>
+          </div>
+          <div class="text-xs text-[var(--muted-foreground)]">
+            Subtotal Tampil: <strong id="assets-filtered-total" class="text-[var(--foreground)] tabular-nums">Rp 0</strong>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2.5 pr-3 font-medium">Nama Aset</th>
+                <th class="py-2.5 px-3 font-medium">Kategori</th>
+                <th class="py-2.5 px-3 font-medium">Likuiditas</th>
+                <th class="py-2.5 px-3 font-medium text-right">Nilai Saat Ini</th>
+                <th class="py-2.5 px-3 font-medium text-right">Porsi</th>
+                <th class="py-2.5 pl-3 font-medium text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="assets-table-body" class="divide-y divide-[var(--border)]"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MOBILE BOTTOM NAVIGATION -->
+  <nav id="mobile-bottom-nav" class="hidden sm:hidden fixed bottom-0 inset-x-0 z-40 bg-[var(--card)]/95 backdrop-blur border-t border-[var(--border)] px-1 py-1.5" style="padding-bottom: max(0.375rem, env(safe-area-inset-bottom));">
+    <div class="grid grid-cols-6 gap-0.5 text-[11px] text-center">
+      <button class="mobile-nav-btn flex flex-col items-center justify-center py-1 rounded-lg" data-tab="overview" aria-selected="true">
+        <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
+        <span>Ringkas</span>
+      </button>
+      <button class="mobile-nav-btn flex flex-col items-center justify-center py-1 rounded-lg" data-tab="buckets" aria-selected="false">
+        <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+        <span>5 Pos</span>
+      </button>
+      <button class="mobile-nav-btn flex flex-col items-center justify-center py-1 rounded-lg" data-tab="expenses" aria-selected="false">
+        <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
+        <span>Biaya</span>
+      </button>
+      <button class="mobile-nav-btn flex flex-col items-center justify-center py-1 rounded-lg" data-tab="income" aria-selected="false">
+        <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V7m0 1v8m0 0v1"/></svg>
+        <span>Gaji</span>
+      </button>
+      <button class="mobile-nav-btn flex flex-col items-center justify-center py-1 rounded-lg" data-tab="receivables" aria-selected="false">
+        <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <span>Piutang</span>
+      </button>
+      <button class="mobile-nav-btn flex flex-col items-center justify-center py-1 rounded-lg" data-tab="assets" aria-selected="false">
+        <svg class="w-4 h-4 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+        <span>Aset</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- MODAL: INCOME + SALARY SPLIT -->
+  <dialog id="modal-income" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-lg shadow-xl">
+    <form id="form-income" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 id="modal-income-title" class="text-sm font-semibold">Terima Gaji / Catat Penghasilan</h3>
+        <button type="button" onclick="closeModal('modal-income')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <input type="hidden" id="income-id" />
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Tanggal</label>
+          <input id="income-date" required type="date" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Kategori</label>
+          <select id="income-category" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]"></select>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Sumber / Deskripsi</label>
+          <input id="income-source" required type="text" placeholder="Contoh: Gaji Bulanan" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Jumlah Diterima (Rp)</label>
+          <input id="income-amount" required type="number" min="0" step="1" placeholder="0" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums font-semibold" />
+        </div>
+      </div>
+
+      <!-- Salary Split Section -->
+      <div class="p-3.5 rounded-xl bg-[var(--background)] border border-[var(--border)] space-y-3">
+        <div class="flex items-center justify-between gap-2">
+          <label class="flex items-center gap-2 font-medium cursor-pointer select-none">
+            <input id="income-enable-split" type="checkbox" checked class="accent-[var(--primary)]" />
+            <span>Langsung bagi ke 5 Pos Tabungan</span>
+          </label>
+          <button type="button" id="btn-recalc-split" class="text-[var(--link)] hover:underline cursor-pointer">Hitung ulang sesuai aturan</button>
+        </div>
+        <div id="income-split-fields" class="space-y-2">
+          <div id="income-split-inputs" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"></div>
+          <div class="flex items-center justify-between pt-2 border-t border-[var(--border)]">
+            <span class="text-[var(--muted-foreground)]">Total Dialokasikan:</span>
+            <span id="income-split-total" class="font-semibold tabular-nums">Rp 0</span>
+          </div>
+          <div id="income-split-diff" class="text-right tabular-nums"></div>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Catatan (Opsional)</label>
+        <input id="income-note" type="text" placeholder="Keterangan tambahan" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-income')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: LIVING EXPENSE -->
+  <dialog id="modal-expense" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-md shadow-xl">
+    <form id="form-expense" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 id="modal-expense-title" class="text-sm font-semibold">Catat Pengeluaran Biaya Hidup</h3>
+        <button type="button" onclick="closeModal('modal-expense')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <div class="p-2.5 rounded-lg bg-[var(--background)] border border-[var(--border)] flex items-center justify-between">
+        <span class="text-[var(--muted-foreground)]">Sisa Biaya Hidup Saat Ini:</span>
+        <strong id="modal-exp-current-bal" class="tabular-nums">Rp 0</strong>
+      </div>
+      <input type="hidden" id="expense-id" />
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Tanggal</label>
+          <input id="expense-date" required type="date" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Kategori</label>
+          <select id="expense-category" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]"></select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Keperluan / Deskripsi</label>
+        <input id="expense-title" required type="text" placeholder="Contoh: Makan siang / Belanja mingguan / Bensin" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Nominal Pengeluaran (Rp)</label>
+        <input id="expense-amount" required type="number" min="1" step="1" placeholder="0" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums font-semibold" />
+        <div id="modal-exp-after-bal" class="mt-1 text-[var(--muted-foreground)] tabular-nums"></div>
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Catatan (Opsional)</label>
+        <input id="expense-note" type="text" placeholder="Keterangan tambahan" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-expense')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Simpan &amp; Potong Saldo</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: BUCKET TRANSACTION / TRANSFER -->
+  <dialog id="modal-bucket-txn" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-md shadow-xl">
+    <form id="form-bucket-txn" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 class="text-sm font-semibold">Mutasi / Pemakaian Pos Tabungan</h3>
+        <button type="button" onclick="closeModal('modal-bucket-txn')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Tanggal</label>
+          <input id="btxn-date" required type="date" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Jenis Mutasi</label>
+          <select id="btxn-kind" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+            <option value="out">Pemakaian / Bayar (Kurangi)</option>
+            <option value="in">Setoran Tambahan (Tambah)</option>
+            <option value="transfer">Transfer Antar Pos</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label id="btxn-bucket-label" class="block text-[var(--muted-foreground)] mb-1">Pos Tabungan</label>
+        <select id="btxn-bucket" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]"></select>
+      </div>
+      <div id="btxn-target-wrap" class="hidden">
+        <label class="block text-[var(--muted-foreground)] mb-1">Pos Tujuan Transfer</label>
+        <select id="btxn-target-bucket" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]"></select>
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Nominal (Rp)</label>
+        <input id="btxn-amount" required type="number" min="1" step="1" placeholder="0" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums" />
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Keterangan</label>
+        <input id="btxn-note" required type="text" placeholder="Contoh: Bayar sewa kontrakan bulan Nov / Beli reksadana" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-bucket-txn')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Simpan Mutasi</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: EDIT BUCKET INITIAL BALANCE -->
+  <dialog id="modal-bucket-initial" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-sm shadow-xl">
+    <form id="form-bucket-initial" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 id="modal-bi-title" class="text-sm font-semibold">Atur Saldo Awal</h3>
+        <button type="button" onclick="closeModal('modal-bucket-initial')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <input type="hidden" id="bi-bucket-id" />
+      <p class="text-[var(--muted-foreground)]">Masukkan saldo awal tabungan sebelum pencatatan gaji di aplikasi ini dimulai.</p>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Saldo Awal (Rp)</label>
+        <input id="bi-amount" required type="number" min="0" step="1" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-bucket-initial')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: RECEIVABLE (PIUTANG) -->
+  <dialog id="modal-receivable" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-md shadow-xl">
+    <form id="form-receivable" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 id="modal-rec-title" class="text-sm font-semibold">Tambah Piutang</h3>
+        <button type="button" onclick="closeModal('modal-receivable')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <input type="hidden" id="rec-id" />
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Nama Peminjam / Debitur</label>
+        <input id="rec-borrower" required type="text" placeholder="Contoh: Budi Santoso" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Tanggal Pinjam</label>
+          <input id="rec-date" required type="date" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Jatuh Tempo (Opsional)</label>
+          <input id="rec-due" type="date" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+        </div>
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Jumlah Piutang (Rp)</label>
+        <input id="rec-amount" required type="number" min="1" step="1" placeholder="0" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums" />
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Keterangan / Catatan</label>
+        <input id="rec-note" type="text" placeholder="Contoh: Pinjaman modal / talangan tiket" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-receivable')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: RECEIVABLE PAYMENT (CICILAN / PELUNASAN) -->
+  <dialog id="modal-rec-pay" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-md shadow-xl">
+    <form id="form-rec-pay" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 class="text-sm font-semibold">Catat Pembayaran Piutang</h3>
+        <button type="button" onclick="closeModal('modal-rec-pay')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <input type="hidden" id="recpay-id" />
+      <div class="p-3 rounded-lg bg-[var(--background)] border border-[var(--border)] space-y-1">
+        <div class="flex justify-between"><span class="text-[var(--muted-foreground)]">Peminjam:</span><strong id="recpay-borrower">-</strong></div>
+        <div class="flex justify-between"><span class="text-[var(--muted-foreground)]">Sisa Piutang:</span><strong id="recpay-remaining" class="text-[var(--warning)] tabular-nums">Rp 0</strong></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Tanggal Bayar</label>
+          <input id="recpay-date" required type="date" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Jumlah Diterima (Rp)</label>
+          <input id="recpay-amount" required type="number" min="1" step="1" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums" />
+        </div>
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Masukkan Uang ke Pos Tabungan (Opsional)</label>
+        <select id="recpay-bucket" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+          <option value="">Tidak dimasukkan ke Pos Tabungan</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Catatan</label>
+        <input id="recpay-note" type="text" placeholder="Contoh: Transfer BCA cicilan ke-1" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-rec-pay')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Simpan Pembayaran</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: ASSET -->
+  <dialog id="modal-asset" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-md shadow-xl">
+    <form id="form-asset" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 id="modal-asset-title" class="text-sm font-semibold">Tambah Aset Lainnya</h3>
+        <button type="button" onclick="closeModal('modal-asset')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <input type="hidden" id="asset-id" />
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Nama Aset</label>
+        <input id="asset-name" required type="text" placeholder="Contoh: Emas Antam / Saham / Motor" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Kategori</label>
+          <select id="asset-category" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]"></select>
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Likuiditas</label>
+          <select id="asset-liquidity" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+            <option value="Likuid">Likuid</option>
+            <option value="Semi-Likuid">Semi-Likuid</option>
+            <option value="Tidak Likuid">Tidak Likuid</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Nilai Saat Ini (Rp)</label>
+        <input id="asset-value" required type="number" min="0" step="1" placeholder="0" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums" />
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Catatan (Opsional)</label>
+        <input id="asset-note" type="text" placeholder="Keterangan tambahan" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-asset')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: CHANGE PASSWORD -->
+  <dialog id="modal-password" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-sm shadow-xl">
+    <form id="form-password" class="p-5 space-y-4 text-xs">
+      <div class="flex items-center justify-between pb-2 border-b border-[var(--border)]">
+        <h3 class="text-sm font-semibold">Ubah Password / PIN</h3>
+        <button type="button" onclick="closeModal('modal-password')" class="text-[var(--muted-foreground)] hover:text-[var(--foreground)] text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <div id="pwd-error" class="hidden p-2 rounded-lg border border-[var(--error)] text-[var(--error)]"></div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Password Saat Ini</label>
+        <input id="pwd-old" required type="password" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Password Baru</label>
+        <input id="pwd-new" required minlength="4" type="password" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div>
+        <label class="block text-[var(--muted-foreground)] mb-1">Konfirmasi Password Baru</label>
+        <input id="pwd-confirm" required minlength="4" type="password" class="w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)]" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button type="button" onclick="closeModal('modal-password')" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button type="submit" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Perbarui</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODAL: CUSTOM CONFIRMATION -->
+  <dialog id="modal-confirm" class="rounded-2xl bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] p-0 w-full max-w-sm shadow-xl">
+    <div class="p-5 space-y-4 text-xs">
+      <h3 id="confirm-title" class="text-sm font-semibold">Konfirmasi</h3>
+      <p id="confirm-message" class="text-[var(--muted-foreground)]"></p>
+      <div class="flex justify-end gap-2 pt-1">
+        <button id="confirm-cancel" type="button" class="px-3.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Batal</button>
+        <button id="confirm-ok" type="button" class="px-4 py-1.5 rounded-lg font-medium bg-[var(--error)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Ya, Lanjutkan</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // ==================== CONSTANTS ====================
+    const USERS_KEY = 'pf_app_users_v2';
+    const SESSION_KEY = 'pf_app_session_v2';
+    const DATA_PREFIX = 'pf_app_data_v2_';
+
+    const BUCKETS = [
+      { id: 'biaya_hidup', name: 'Biaya Hidup', colorIdx: 0, desc: 'Makan, transport & kebutuhan harian' },
+      { id: 'kontrakan', name: 'Kontrakan', colorIdx: 1, desc: 'Alokasi sewa rumah / kos' },
+      { id: 'dana_darurat', name: 'Dana Darurat', colorIdx: 2, desc: 'Simpanan cadangan tak terduga' },
+      { id: 'investasi', name: 'Investasi', colorIdx: 3, desc: 'Reksadana, saham, emas & aset produktif' },
+      { id: 'dana_mutasi', name: 'Dana Mutasi', colorIdx: 4, desc: 'Cadangan mutasi / pindah tugas / khusus' }
+    ];
+
+    const ASSET_CATEGORIES = [
+      'Saham & Reksadana',
+      'Emas & Komoditas',
+      'Properti & Kendaraan',
+      'Kas & Bank Lainnya',
+      'Kripto',
+      'Lainnya'
+    ];
+
+    const INCOME_CATEGORIES = [
+      'Gaji Utama',
+      'Bonus & Tunjangan',
+      'Bisnis / Freelance',
+      'Dividen & Bunga',
+      'Lainnya'
+    ];
+
+    const EXPENSE_CATEGORIES = [
+      'Makan & Minum',
+      'Transportasi & BBM',
+      'Belanja Harian',
+      'Listrik, Air & Internet',
+      'Kesehatan',
+      'Hiburan & Sosial',
+      'Lainnya'
+    ];
+
+    const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+    const MONTH_FULL = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+    const DEFAULT_RULE = {
+      mode: 'percent',
+      percent: { biaya_hidup: 40, kontrakan: 15, dana_darurat: 15, investasi: 20, dana_mutasi: 10 },
+      fixed: { biaya_hidup: 4000000, kontrakan: 1500000, dana_darurat: 1500000, investasi: 2000000, dana_mutasi: 1000000 }
+    };
+
+    function createEmptyData() {
+      return {
+        bucketInitials: { biaya_hidup: 0, kontrakan: 0, dana_darurat: 0, investasi: 0, dana_mutasi: 0 },
+        allocationRule: structuredClone(DEFAULT_RULE),
+        assets: [],
+        incomes: [],
+        expenses: [],
+        receivables: [],
+        bucketTxns: []
+      };
+    }
+
+    function createSampleData() {
+      return {
+        bucketInitials: {
+          biaya_hidup: 1200000,
+          kontrakan: 3000000,
+          dana_darurat: 24000000,
+          investasi: 15000000,
+          dana_mutasi: 6000000
+        },
+        allocationRule: structuredClone(DEFAULT_RULE),
+        assets: [
+          { id: 'a1', name: 'Portofolio Reksadana Obligasi', category: 'Saham & Reksadana', liquidity: 'Semi-Likuid', value: 45000000, note: 'Investasi jangka menengah' },
+          { id: 'a2', name: 'Emas Antam (20 gram)', category: 'Emas & Komoditas', liquidity: 'Semi-Likuid', value: 31000000, note: 'Simpanan logam mulia' },
+          { id: 'a3', name: 'Sepeda Motor Harian', category: 'Properti & Kendaraan', liquidity: 'Tidak Likuid', value: 18500000, note: 'Estimasi nilai pasar' }
+        ],
+        incomes: [
+          {
+            id: 'i1', date: '2026-09-25', source: 'Gaji Bulanan September', category: 'Gaji Utama', amount: 10000000, note: '',
+            allocations: { biaya_hidup: 4000000, kontrakan: 1500000, dana_darurat: 1500000, investasi: 2000000, dana_mutasi: 1000000 }
+          },
+          {
+            id: 'i2', date: '2026-10-25', source: 'Gaji Bulanan Oktober', category: 'Gaji Utama', amount: 10000000, note: '',
+            allocations: { biaya_hidup: 4000000, kontrakan: 1500000, dana_darurat: 1500000, investasi: 2000000, dana_mutasi: 1000000 }
+          },
+          {
+            id: 'i3', date: '2026-11-01', source: 'Gaji Bulanan November', category: 'Gaji Utama', amount: 10500000, note: 'Termasuk tunjangan',
+            allocations: { biaya_hidup: 4200000, kontrakan: 1575000, dana_darurat: 1575000, investasi: 2100000, dana_mutasi: 1050000 }
+          },
+          {
+            id: 'i4', date: '2026-11-14', source: 'Proyek Sampingan', category: 'Bisnis / Freelance', amount: 2500000, note: 'Masuk investasi & dana darurat',
+            allocations: { biaya_hidup: 0, kontrakan: 0, dana_darurat: 1000000, investasi: 1500000, dana_mutasi: 0 }
+          }
+        ],
+        expenses: [
+          { id: 'e1', date: '2026-09-28', title: 'Belanja & Makan Akhir Bulan', category: 'Makan & Minum', amount: 3450000, note: 'Akumulasi September' },
+          { id: 'e2', date: '2026-10-29', title: 'Kebutuhan Harian & Transport', category: 'Belanja Harian', amount: 3650000, note: 'Akumulasi Oktober' },
+          { id: 'e3', date: '2026-11-03', title: 'Belanja Bulanan Supermarket', category: 'Belanja Harian', amount: 850000, note: 'Beras, minyak, kebutuhan rumah' },
+          { id: 'e4', date: '2026-11-06', title: 'Token Listrik & Wi-Fi', category: 'Listrik, Air & Internet', amount: 520000, note: '' },
+          { id: 'e5', date: '2026-11-12', title: 'BBM & Servis Ringan', category: 'Transportasi & BBM', amount: 310000, note: '' },
+          { id: 'e6', date: '2026-11-18', title: 'Makan & Minum Mingguan', category: 'Makan & Minum', amount: 640000, note: '' },
+          { id: 'e7', date: '2026-11-23', title: 'Apotek & Vitamin', category: 'Kesehatan', amount: 185000, note: '' }
+        ],
+        receivables: [
+          {
+            id: 'r1', borrower: 'Rudi Hartono', date: '2026-10-10', dueDate: '2026-12-10', amount: 5000000, note: 'Pinjaman biaya servis kendaraan',
+            payments: [
+              { id: 'rp1', date: '2026-11-05', amount: 2000000, targetBucket: 'dana_darurat', note: 'Cicilan pertama via transfer' }
+            ]
+          },
+          {
+            id: 'r2', borrower: 'Dina Kusuma', date: '2026-10-01', dueDate: '2026-11-15', amount: 1500000, note: 'Talangan tiket pesawat dinas',
+            payments: []
+          },
+          {
+            id: 'r3', borrower: 'Fajar Pratama', date: '2026-08-20', dueDate: '2026-09-30', amount: 1000000, note: 'Pinjaman pribadi',
+            payments: [
+              { id: 'rp2', date: '2026-09-25', amount: 1000000, targetBucket: 'biaya_hidup', note: 'Lunas' }
+            ]
+          }
+        ],
+        bucketTxns: [
+          { id: 'bt1', date: '2026-10-05', bucketId: 'kontrakan', type: 'out', amount: 1500000, note: 'Bayar kontrakan Oktober' },
+          { id: 'bt2', date: '2026-11-05', bucketId: 'kontrakan', type: 'out', amount: 1500000, note: 'Bayar kontrakan November' }
+        ]
+      };
+    }
+
+    // ==================== STATE ====================
+    let currentUser = null;
+    let state = createEmptyData();
+    let ui = {
+      activeTab: 'overview',
+      selectedYear: '2026',
+      ruleMode: 'percent'
+    };
+
+    // ==================== UTILITIES ====================
+    const fmtRp = (num) => new Intl.NumberFormat('id-ID', {
+      style: 'currency', currency: 'IDR', maximumFractionDigits: 0
+    }).format(Math.round(Number(num) || 0));
+
+    const fmtShortRp = (num) => {
+      const abs = Math.abs(num || 0);
+      const sign = (num || 0) < 0 ? '-' : '';
+      if (abs >= 1e9) return sign + 'Rp ' + (abs / 1e9).toFixed(1).replace('.0', '') + ' M';
+      if (abs >= 1e6) return sign + 'Rp ' + (abs / 1e6).toFixed(1).replace('.0', '') + ' jt';
+      if (abs >= 1e3) return sign + 'Rp ' + Math.round(abs / 1e3) + ' rb';
+      return fmtRp(num);
+    };
+
+    const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    const todayIso = () => new Date().toISOString().slice(0, 10);
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function formatDateId(iso) {
+      if (!iso) return '-';
+      const [y, m, d] = iso.split('-');
+      const mIdx = parseInt(m, 10) - 1;
+      return `${parseInt(d, 10)} ${MONTH_NAMES[mIdx] || m} ${y}`;
+    }
+
+    let toastTimer = null;
+    function showToast(msg, type = 'success') {
+      const el = document.getElementById('toast');
+      const dot = document.getElementById('toast-dot');
+      document.getElementById('toast-msg').textContent = msg;
+      dot.style.background = type === 'error' ? 'var(--error)' : type === 'warning' ? 'var(--warning)' : 'var(--success)';
+      el.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 3200);
+    }
+
+    function askConfirm(title, message, onConfirm) {
+      const dlg = document.getElementById('modal-confirm');
+      document.getElementById('confirm-title').textContent = title;
+      document.getElementById('confirm-message').textContent = message;
+      const okBtn = document.getElementById('confirm-ok');
+      const cancelBtn = document.getElementById('confirm-cancel');
+      const cleanup = () => {
+        okBtn.onclick = null;
+        cancelBtn.onclick = null;
+        dlg.close();
+      };
+      okBtn.onclick = () => { cleanup(); onConfirm(); };
+      cancelBtn.onclick = cleanup;
+      dlg.showModal();
+    }
+
+    // Deterministic password hash with Web Crypto + safe fallback
+    async function hashPassword(username, password) {
+      const text = `pf_v2::${username.toLowerCase()}::${password}`;
+      if (window.crypto && crypto.subtle) {
+        try {
+          const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+          return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        } catch {}
+      }
+      // Fallback hash for non-secure contexts
+      let h1 = 0xdeadbeef ^ text.length, h2 = 0x41c6ce57 ^ text.length;
+      for (let i = 0; i < text.length; i++) {
+        const ch = text.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+      return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16);
+    }
+
+    // ==================== AUTH MANAGEMENT ====================
+    function getUsers() {
+      try {
+        return JSON.parse(localStorage.getItem(USERS_KEY) || '{}');
+      } catch {
+        return {};
+      }
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    }
+
+    async function ensureDemoAccount() {
+      const users = getUsers();
+      if (!users['demo']) {
+        users['demo'] = {
+          username: 'demo',
+          fullName: 'Akun Demo',
+          passwordHash: await hashPassword('demo', 'demo123'),
+          createdAt: new Date().toISOString()
+        };
+        saveUsers(users);
+        if (!localStorage.getItem(DATA_PREFIX + 'demo')) {
+          localStorage.setItem(DATA_PREFIX + 'demo', JSON.stringify(createSampleData()));
+        }
+      }
+    }
+
+    function saveUserData() {
+      if (!currentUser) return;
+      try {
+        localStorage.setItem(DATA_PREFIX + currentUser.username, JSON.stringify(state));
+      } catch (e) {
+        showToast('Gagal menyimpan ke localStorage', 'error');
+      }
+    }
+
+    function loadUserData(username) {
+      try {
+        const raw = localStorage.getItem(DATA_PREFIX + username);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          const base = createEmptyData();
+          state = {
+            bucketInitials: { ...base.bucketInitials, ...(parsed.bucketInitials || {}) },
+            allocationRule: {
+              mode: parsed.allocationRule?.mode || 'percent',
+              percent: { ...DEFAULT_RULE.percent, ...(parsed.allocationRule?.percent || {}) },
+              fixed: { ...DEFAULT_RULE.fixed, ...(parsed.allocationRule?.fixed || {}) }
+            },
+            assets: Array.isArray(parsed.assets) ? parsed.assets : [],
+            incomes: Array.isArray(parsed.incomes) ? parsed.incomes : [],
+            expenses: Array.isArray(parsed.expenses) ? parsed.expenses : [],
+            receivables: Array.isArray(parsed.receivables) ? parsed.receivables : [],
+            bucketTxns: Array.isArray(parsed.bucketTxns) ? parsed.bucketTxns : []
+          };
+          return;
+        }
+      } catch {}
+      state = username === 'demo' ? createSampleData() : createEmptyData();
+      saveUserData();
+    }
+
+    function enterApp(user, remember = true) {
+      currentUser = user;
+      const sessionPayload = JSON.stringify({ username: user.username });
+      if (remember) {
+        localStorage.setItem(SESSION_KEY, sessionPayload);
+        sessionStorage.removeItem(SESSION_KEY);
+      } else {
+        sessionStorage.setItem(SESSION_KEY, sessionPayload);
+        localStorage.removeItem(SESSION_KEY);
+      }
+      loadUserData(user.username);
+      ui.ruleMode = state.allocationRule.mode || 'percent';
+      document.getElementById('header-user-name').textContent = user.fullName || user.username;
+      document.getElementById('menu-username').textContent = '@' + user.username;
+      document.getElementById('auth-screen').classList.add('hidden');
+      document.getElementById('app-shell').classList.remove('hidden');
+      document.getElementById('mobile-bottom-nav').classList.remove('hidden');
+      renderAll();
+    }
+
+    function logoutUser() {
+      currentUser = null;
+      localStorage.removeItem(SESSION_KEY);
+      sessionStorage.removeItem(SESSION_KEY);
+      document.getElementById('app-shell').classList.add('hidden');
+      document.getElementById('mobile-bottom-nav').classList.add('hidden');
+      document.getElementById('auth-screen').classList.remove('hidden');
+      document.getElementById('form-login').reset();
+      document.getElementById('auth-error').classList.add('hidden');
+      showToast('Anda telah keluar dari akun');
+    }
+
+    function showAuthError(msg) {
+      const el = document.getElementById('auth-error');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    // ==================== CORE FINANCIAL CALCULATIONS ====================
+    function computeBucketSummary(bucketId) {
+      const initial = Number(state.bucketInitials?.[bucketId] || 0);
+      let fromIncome = 0;
+      state.incomes.forEach(inc => {
+        if (inc.allocations && inc.allocations[bucketId]) {
+          fromIncome += Number(inc.allocations[bucketId] || 0);
+        }
+      });
+
+      let manualIn = 0;
+      let manualOut = 0;
+      state.bucketTxns.forEach(tx => {
+        if (tx.bucketId === bucketId) {
+          if (tx.type === 'in') manualIn += Number(tx.amount || 0);
+          else if (tx.type === 'out') manualOut += Number(tx.amount || 0);
+        }
+      });
+
+      let fromReceivables = 0;
+      state.receivables.forEach(r => {
+        (r.payments || []).forEach(p => {
+          if (p.targetBucket === bucketId) {
+            fromReceivables += Number(p.amount || 0);
+          }
+        });
+      });
+
+      let livingExpenses = 0;
+      if (bucketId === 'biaya_hidup') {
+        state.expenses.forEach(ex => {
+          livingExpenses += Number(ex.amount || 0);
+        });
+      }
+
+      const totalIn = initial + fromIncome + manualIn + fromReceivables;
+      const totalOut = manualOut + livingExpenses;
+      const balance = totalIn - totalOut;
+      return { initial, fromIncome, manualIn, fromReceivables, manualOut, livingExpenses, totalIn, totalOut, balance };
+    }
+
+    function computeAllBuckets() {
+      const map = {};
+      let grandTotal = 0;
+      BUCKETS.forEach(b => {
+        map[b.id] = computeBucketSummary(b.id);
+        grandTotal += map[b.id].balance;
+      });
+      return { map, grandTotal };
+    }
+
+    function computeReceivableStats(rec) {
+      const total = Number(rec.amount || 0);
+      const paid = (rec.payments || []).reduce((s, p) => s + Number(p.amount || 0), 0);
+      const remaining = Math.max(0, total - paid);
+      let status = 'Belum Lunas';
+      if (remaining <= 0) status = 'Lunas';
+      else if (paid > 0) status = 'Cicilan';
+      const isOverdue = remaining > 0 && rec.dueDate && rec.dueDate < todayIso();
+      return { total, paid, remaining, status, isOverdue };
+    }
+
+    function computeAllocationPreview(salaryAmount) {
+      const rule = state.allocationRule;
+      const out = {};
+      const amt = Number(salaryAmount || 0);
+      if (rule.mode === 'fixed') {
+        BUCKETS.forEach(b => {
+          out[b.id] = Math.max(0, Math.round(Number(rule.fixed[b.id] || 0)));
+        });
+      } else {
+        let running = 0;
+        BUCKETS.forEach((b, idx) => {
+          const pct = Number(rule.percent[b.id] || 0);
+          if (idx === BUCKETS.length - 1 && Math.abs(Object.values(rule.percent).reduce((s, v) => s + Number(v || 0), 0) - 100) < 0.01) {
+            out[b.id] = Math.max(0, Math.round(amt - running));
+          } else {
+            const val = Math.round((amt * pct) / 100);
+            out[b.id] = val;
+            running += val;
+          }
+        });
+      }
+      return out;
+    }
+
+    // ==================== THEME COLORS ====================
+    function getThemeColors() {
+      const styles = getComputedStyle(document.documentElement);
+      const getVar = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
+      return {
+        fg: getVar('--foreground', '#e5e7eb'),
+        muted: getVar('--muted-foreground', '#9ca3af'),
+        border: getVar('--border', '#374151'),
+        card: getVar('--card', '#1f2937'),
+        primary: getVar('--primary', '#3b82f6'),
+        success: getVar('--success', '#10b981'),
+        warning: getVar('--warning', '#f59e0b'),
+        error: getVar('--error', '#ef4444'),
+        charts: [
+          getVar('--chart-1', '#3b82f6'),
+          getVar('--chart-2', '#10b981'),
+          getVar('--chart-3', '#f59e0b'),
+          getVar('--chart-4', '#8b5cf6'),
+          getVar('--chart-5', '#ec4899'),
+          getVar('--chart-6', '#06b6d4')
+        ]
+      };
+    }
+
+    // ==================== RENDERING ====================
+    function populateStaticSelects() {
+      const assetCatSel = document.getElementById('asset-category');
+      const filterAssetCat = document.getElementById('filter-asset-cat');
+      assetCatSel.innerHTML = '';
+      filterAssetCat.innerHTML = '<option value="ALL">Semua Kategori</option>';
+      ASSET_CATEGORIES.forEach(c => {
+        assetCatSel.add(new Option(c, c));
+        filterAssetCat.add(new Option(c, c));
+      });
+
+      const incCatSel = document.getElementById('income-category');
+      const filterIncCat = document.getElementById('filter-income-cat');
+      incCatSel.innerHTML = '';
+      filterIncCat.innerHTML = '<option value="ALL">Semua Kategori</option>';
+      INCOME_CATEGORIES.forEach(c => {
+        incCatSel.add(new Option(c, c));
+        filterIncCat.add(new Option(c, c));
+      });
+
+      const expCatSel = document.getElementById('expense-category');
+      const filterExpCat = document.getElementById('filter-expense-cat');
+      expCatSel.innerHTML = '';
+      filterExpCat.innerHTML = '<option value="ALL">Semua Kategori</option>';
+      EXPENSE_CATEGORIES.forEach(c => {
+        expCatSel.add(new Option(c, c));
+        filterExpCat.add(new Option(c, c));
+      });
+
+      ['filter-income-month', 'filter-expense-month'].forEach(id => {
+        const sel = document.getElementById(id);
+        sel.innerHTML = '<option value="ALL">Semua Bulan</option>';
+        MONTH_FULL.forEach((m, i) => sel.add(new Option(m, String(i + 1).padStart(2, '0'))));
+      });
+
+      const bLedgerSel = document.getElementById('filter-bucket-ledger');
+      const bTxnSel = document.getElementById('btxn-bucket');
+      const bTargetSel = document.getElementById('btxn-target-bucket');
+      const recPayBucket = document.getElementById('recpay-bucket');
+      bLedgerSel.innerHTML = '<option value="ALL">Semua Pos Tabungan</option>';
+      bTxnSel.innerHTML = '';
+      bTargetSel.innerHTML = '';
+      recPayBucket.innerHTML = '<option value="">Tidak dimasukkan ke Pos Tabungan</option>';
+      BUCKETS.forEach(b => {
+        bLedgerSel.add(new Option(b.name, b.id));
+        bTxnSel.add(new Option(b.name, b.id));
+        bTargetSel.add(new Option(b.name, b.id));
+        recPayBucket.add(new Option('Masukkan ke: ' + b.name, b.id));
+      });
+    }
+
+    function updateYearOptions() {
+      const years = new Set([todayIso().slice(0, 4)]);
+      state.incomes.forEach(i => { if (i.date?.length >= 4) years.add(i.date.slice(0, 4)); });
+      state.expenses.forEach(e => { if (e.date?.length >= 4) years.add(e.date.slice(0, 4)); });
+      const sorted = Array.from(years).sort((a, b) => b.localeCompare(a));
+      if (!sorted.includes(ui.selectedYear)) ui.selectedYear = sorted[0];
+      const sel = document.getElementById('filter-year');
+      sel.innerHTML = '';
+      sorted.forEach(y => sel.add(new Option('Tahun ' + y, y)));
+      sel.value = ui.selectedYear;
+    }
+
+    function renderAll() {
+      if (!currentUser) return;
+      updateYearOptions();
+      renderKPIs();
+      renderOverview();
+      renderBucketsTab();
+      renderExpensesTab();
+      renderIncomeTable();
+      renderReceivablesTab();
+      renderAssetsTab();
+      if (ui.activeTab === 'overview') {
+        requestAnimationFrame(() => drawCharts());
+      }
+    }
+
+    function renderKPIs() {
+      const { map: bMap, grandTotal: bucketsTotal } = computeAllBuckets();
+      const otherAssetsTotal = state.assets.reduce((s, a) => s + Number(a.value || 0), 0);
+
+      let activeRecTotal = 0;
+      let activeRecCount = 0;
+      state.receivables.forEach(r => {
+        const st = computeReceivableStats(r);
+        if (st.remaining > 0) {
+          activeRecTotal += st.remaining;
+          activeRecCount++;
+        }
+      });
+
+      const netWorth = bucketsTotal + otherAssetsTotal + activeRecTotal;
+      document.getElementById('kpi-net-worth').textContent = fmtRp(netWorth);
+      document.getElementById('kpi-net-worth-sub').textContent =
+        `Pos ${fmtShortRp(bucketsTotal)} + Aset ${fmtShortRp(otherAssetsTotal)} + Piutang ${fmtShortRp(activeRecTotal)}`;
+
+      // Sisa Biaya Hidup
+      const bh = bMap.biaya_hidup;
+      const curYM = todayIso().slice(0, 7);
+      const expThisMonth = state.expenses
+        .filter(e => e.date?.startsWith(curYM))
+        .reduce((s, e) => s + Number(e.amount || 0), 0);
+
+      const livingEl = document.getElementById('kpi-living-balance');
+      livingEl.textContent = fmtRp(bh.balance);
+      livingEl.style.color = bh.balance < 0 ? 'var(--error)' : 'var(--foreground)';
+
+      const remainPct = bh.totalIn > 0 ? Math.max(0, Math.min(100, (bh.balance / bh.totalIn) * 100)) : 0;
+      const bar = document.getElementById('kpi-living-bar');
+      bar.style.width = remainPct + '%';
+      bar.style.background = bh.balance <= 0 ? 'var(--error)' : remainPct < 20 ? 'var(--warning)' : 'var(--success)';
+      document.getElementById('kpi-living-sub').textContent = `Pengeluaran bulan ini: ${fmtRp(expThisMonth)}`;
+
+      // Piutang
+      document.getElementById('kpi-receivables').textContent = fmtRp(activeRecTotal);
+      document.getElementById('kpi-receivables-sub').textContent = `${activeRecCount} debitur belum lunas`;
+
+      // Income year
+      const yearIncomes = state.incomes.filter(i => i.date?.startsWith(ui.selectedYear));
+      const totalYearInc = yearIncomes.reduce((s, i) => s + Number(i.amount || 0), 0);
+      const activeMonths = new Set(yearIncomes.map(i => i.date.slice(0, 7))).size || 1;
+      document.getElementById('kpi-year-income-label').textContent = `Penghasilan (${ui.selectedYear})`;
+      document.getElementById('kpi-year-income').textContent = fmtRp(totalYearInc);
+      document.getElementById('kpi-year-income-sub').textContent = `Rata-rata: ${fmtRp(yearIncomes.length ? totalYearInc / activeMonths : 0)} / bln`;
+    }
+
+    function renderOverview() {
+      const { map: bMap } = computeAllBuckets();
+      const colors = getThemeColors();
+
+      // 5 Pos strip
+      const grid = document.getElementById('overview-buckets-grid');
+      grid.innerHTML = BUCKETS.map((b, idx) => {
+        const info = bMap[b.id];
+        const color = colors.charts[idx % colors.charts.length];
+        const negStyle = info.balance < 0 ? 'text-[var(--error)]' : '';
+        return `
+          <div class="p-3 rounded-xl bg-[var(--background)] border border-[var(--border)] space-y-1.5">
+            <div class="flex items-center justify-between gap-1 text-xs">
+              <span class="font-medium truncate">${b.name}</span>
+              <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${color}"></span>
+            </div>
+            <div class="text-sm font-bold tabular-nums ${negStyle}">${fmtRp(info.balance)}</div>
+            <div class="text-xs text-[var(--muted-foreground)] truncate">
+              ${b.id === 'biaya_hidup' ? `Terpakai: ${fmtShortRp(info.livingExpenses)}` : `Masuk gaji: ${fmtShortRp(info.fromIncome)}`}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Recent expenses
+      const expEl = document.getElementById('overview-recent-expenses');
+      const recentExp = [...state.expenses].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
+      if (!recentExp.length) {
+        expEl.innerHTML = `<div class="py-6 text-center text-[var(--muted-foreground)]">Belum ada pengeluaran biaya hidup.</div>`;
+      } else {
+        expEl.innerHTML = recentExp.map(e => `
+          <div class="py-2.5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <div class="font-medium truncate">${escapeHtml(e.title)}</div>
+              <div class="text-[var(--muted-foreground)]">${formatDateId(e.date)} &middot; ${escapeHtml(e.category)}</div>
+            </div>
+            <div class="font-semibold text-[var(--error)] tabular-nums shrink-0">&minus;${fmtRp(e.amount)}</div>
+          </div>
+        `).join('');
+      }
+
+      // Active receivables
+      const recEl = document.getElementById('overview-active-receivables');
+      const activeRecs = state.receivables
+        .map(r => ({ ...r, stats: computeReceivableStats(r) }))
+        .filter(r => r.stats.remaining > 0)
+        .sort((a, b) => (a.dueDate || '9999').localeCompare(b.dueDate || '9999'))
+        .slice(0, 5);
+      if (!activeRecs.length) {
+        recEl.innerHTML = `<div class="py-6 text-center text-[var(--muted-foreground)]">Tidak ada piutang aktif.</div>`;
+      } else {
+        recEl.innerHTML = activeRecs.map(r => `
+          <div class="py-2.5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <div class="font-medium truncate flex items-center gap-1.5">
+                <span>${escapeHtml(r.borrower)}</span>
+                ${r.stats.isOverdue ? `<span class="px-1.5 py-0.5 rounded bg-[var(--error)]/15 text-[var(--error)] text-xs">Terlambat</span>` : ''}
+              </div>
+              <div class="text-[var(--muted-foreground)]">
+                ${r.dueDate ? 'Jatuh tempo: ' + formatDateId(r.dueDate) : 'Tanpa jatuh tempo'} &middot; ${r.stats.status}
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="font-semibold tabular-nums">${fmtRp(r.stats.remaining)}</div>
+              <button onclick="openRecPayModal('${r.id}')" class="text-[var(--link)] hover:underline cursor-pointer">Catat bayar</button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function renderBucketsTab() {
+      const { map: bMap, grandTotal } = computeAllBuckets();
+      const colors = getThemeColors();
+      document.getElementById('buckets-grand-total').textContent = fmtRp(grandTotal);
+
+      const grid = document.getElementById('buckets-detail-grid');
+      grid.innerHTML = BUCKETS.map((b, idx) => {
+        const info = bMap[b.id];
+        const color = colors.charts[idx % colors.charts.length];
+        const ruleVal = state.allocationRule.mode === 'fixed'
+          ? fmtRp(state.allocationRule.fixed[b.id] || 0) + ' / gaji'
+          : (state.allocationRule.percent[b.id] || 0) + '% dari gaji';
+
+        return `
+          <div class="p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] flex flex-col justify-between gap-3">
+            <div class="space-y-2">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full" style="background:${color}"></span>
+                    <h3 class="text-sm font-semibold">${b.name}</h3>
+                  </div>
+                  <p class="text-xs text-[var(--muted-foreground)] mt-0.5">${b.desc}</p>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-[var(--background)] border border-[var(--border)] text-xs text-[var(--muted-foreground)] shrink-0">${ruleVal}</span>
+              </div>
+
+              <div class="pt-1">
+                <div class="text-xs text-[var(--muted-foreground)]">Saldo Saat Ini</div>
+                <div class="text-xl font-bold tabular-nums ${info.balance < 0 ? 'text-[var(--error)]' : ''}">${fmtRp(info.balance)}</div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 pt-2 border-t border-[var(--border)] text-xs">
+                <div>
+                  <div class="text-[var(--muted-foreground)]">Saldo Awal</div>
+                  <div class="font-medium tabular-nums">${fmtRp(info.initial)}</div>
+                </div>
+                <div>
+                  <div class="text-[var(--muted-foreground)]">Masuk dari Gaji</div>
+                  <div class="font-medium text-[var(--success)] tabular-nums">+${fmtRp(info.fromIncome)}</div>
+                </div>
+                <div>
+                  <div class="text-[var(--muted-foreground)]">Mutasi / Piutang Masuk</div>
+                  <div class="font-medium tabular-nums">+${fmtRp(info.manualIn + info.fromReceivables)}</div>
+                </div>
+                <div>
+                  <div class="text-[var(--muted-foreground)]">${b.id === 'biaya_hidup' ? 'Total Pengeluaran' : 'Total Pemakaian'}</div>
+                  <div class="font-medium text-[var(--error)] tabular-nums">&minus;${fmtRp(info.totalOut)}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-[var(--border)] text-xs">
+              <button onclick="openBucketInitialModal('${b.id}')" class="text-[var(--link)] hover:underline cursor-pointer">Atur Saldo Awal</button>
+              ${b.id === 'biaya_hidup'
+                ? `<button onclick="openExpenseModal()" class="px-2.5 py-1 rounded-lg bg-[var(--secondary)] text-[var(--secondary-foreground)] hover:opacity-90 cursor-pointer">+ Catat Pengeluaran</button>`
+                : `<button onclick="openBucketTxnModal('${b.id}')" class="px-2.5 py-1 rounded-lg bg-[var(--secondary)] text-[var(--secondary-foreground)] hover:opacity-90 cursor-pointer">Catat Pakai / Mutasi</button>`}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      renderAllocationRuleForm();
+      renderBucketLedger();
+    }
+
+    function renderAllocationRuleForm() {
+      const mode = ui.ruleMode;
+      const btnPct = document.getElementById('rule-mode-percent');
+      const btnFix = document.getElementById('rule-mode-fixed');
+      btnPct.style.background = mode === 'percent' ? 'var(--primary)' : 'transparent';
+      btnPct.style.color = mode === 'percent' ? 'var(--primary-foreground)' : 'var(--muted-foreground)';
+      btnFix.style.background = mode === 'fixed' ? 'var(--primary)' : 'transparent';
+      btnFix.style.color = mode === 'fixed' ? 'var(--primary-foreground)' : 'var(--muted-foreground)';
+
+      const grid = document.getElementById('rule-inputs-grid');
+      grid.innerHTML = BUCKETS.map(b => {
+        const val = mode === 'percent' ? (state.allocationRule.percent[b.id] ?? 0) : (state.allocationRule.fixed[b.id] ?? 0);
+        return `
+          <div>
+            <label class="block text-[var(--muted-foreground)] mb-1">${b.name} ${mode === 'percent' ? '(%)' : '(Rp)'}</label>
+            <input data-rule-bucket="${b.id}" type="number" min="0" ${mode === 'percent' ? 'max="100" step="any"' : 'step="1"'} value="${val}"
+              class="rule-val-input w-full px-3 py-2 rounded-lg bg-[var(--background)] border border-[var(--border)] tabular-nums" />
+          </div>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('.rule-val-input').forEach(inp => {
+        inp.addEventListener('input', updateRuleSimulation);
+      });
+      updateRuleSimulation();
+    }
+
+    function updateRuleSimulation() {
+      const mode = ui.ruleMode;
+      const simSalary = Number(document.getElementById('rule-sim-salary').value || 0);
+      const inputs = Array.from(document.querySelectorAll('.rule-val-input'));
+      const vals = {};
+      let sum = 0;
+      inputs.forEach(inp => {
+        const v = Number(inp.value || 0);
+        vals[inp.dataset.ruleBucket] = v;
+        sum += v;
+      });
+
+      const summaryEl = document.getElementById('rule-summary-text');
+      if (mode === 'percent') {
+        const ok = Math.abs(sum - 100) < 0.01;
+        summaryEl.innerHTML = ok
+          ? `<span class="text-[var(--success)]">Total alokasi: ${sum}% (Sesuai 100%)</span>`
+          : `<span class="text-[var(--warning)]">Total alokasi: ${sum}% (Disarankan total 100%)</span>`;
+      } else {
+        const diff = simSalary - sum;
+        summaryEl.innerHTML = `Total nominal tetap: <strong class="tabular-nums">${fmtRp(sum)}</strong>` +
+          (simSalary > 0 ? ` &middot; <span class="${diff < 0 ? 'text-[var(--error)]' : 'text-[var(--muted-foreground)]'}">Sisa dari simulasi: ${fmtRp(diff)}</span>` : '');
+      }
+
+      const previewEl = document.getElementById('rule-sim-preview');
+      previewEl.innerHTML = BUCKETS.map(b => {
+        const amt = mode === 'percent' ? Math.round((simSalary * (vals[b.id] || 0)) / 100) : Math.round(vals[b.id] || 0);
+        return `
+          <div class="p-2 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+            <div class="text-[var(--muted-foreground)] truncate">${b.name}</div>
+            <div class="font-semibold tabular-nums">${fmtRp(amt)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderBucketLedger() {
+      const filterB = document.getElementById('filter-bucket-ledger').value;
+      const items = [];
+
+      // Collect from income allocations
+      state.incomes.forEach(inc => {
+        if (!inc.allocations) return;
+        BUCKETS.forEach(b => {
+          const v = Number(inc.allocations[b.id] || 0);
+          if (v > 0) {
+            items.push({
+              date: inc.date, bucketId: b.id, bucketName: b.name,
+              desc: `Alokasi: ${inc.source}`, amount: v, sign: '+', source: 'income', refId: inc.id
+            });
+          }
+        });
+      });
+
+      // Collect from manual bucketTxns
+      state.bucketTxns.forEach(tx => {
+        const b = BUCKETS.find(x => x.id === tx.bucketId);
+        if (!b) return;
+        items.push({
+          date: tx.date, bucketId: b.id, bucketName: b.name,
+          desc: tx.note || (tx.type === 'in' ? 'Setoran tambahan' : 'Pemakaian pos'),
+          amount: Number(tx.amount || 0), sign: tx.type === 'in' ? '+' : '-',
+          source: 'manual', refId: tx.id, transferGroupId: tx.transferGroupId
+        });
+      });
+
+      // Collect from receivable repayments
+      state.receivables.forEach(r => {
+        (r.payments || []).forEach(p => {
+          if (!p.targetBucket) return;
+          const b = BUCKETS.find(x => x.id === p.targetBucket);
+          if (!b) return;
+          items.push({
+            date: p.date, bucketId: b.id, bucketName: b.name,
+            desc: `Pelunasan piutang: ${r.borrower}`, amount: Number(p.amount || 0), sign: '+',
+            source: 'receivable', refId: r.id
+          });
+        });
+      });
+
+      // Collect living expenses
+      state.expenses.forEach(ex => {
+        items.push({
+          date: ex.date, bucketId: 'biaya_hidup', bucketName: 'Biaya Hidup',
+          desc: `Pengeluaran: ${ex.title} (${ex.category})`, amount: Number(ex.amount || 0), sign: '-',
+          source: 'expense', refId: ex.id
+        });
+      });
+
+      const filtered = items
+        .filter(it => filterB === 'ALL' || it.bucketId === filterB)
+        .sort((a, b) => b.date.localeCompare(a.date))
+        .slice(0, 60);
+
+      const tbody = document.getElementById('bucket-ledger-body');
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-6 text-center text-[var(--muted-foreground)]">Belum ada riwayat mutasi.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(it => `
+        <tr class="hover:bg-[var(--secondary)]/40 transition">
+          <td class="py-2 pr-3 whitespace-nowrap text-[var(--muted-foreground)] tabular-nums">${formatDateId(it.date)}</td>
+          <td class="py-2 px-3 font-medium">${escapeHtml(it.bucketName)}</td>
+          <td class="py-2 px-3">${escapeHtml(it.desc)}</td>
+          <td class="py-2 px-3 text-right font-semibold tabular-nums ${it.sign === '+' ? 'text-[var(--success)]' : 'text-[var(--error)]'}">
+            ${it.sign === '+' ? '+' : '&minus;'}${fmtRp(it.amount)}
+          </td>
+          <td class="py-2 pl-3 text-right whitespace-nowrap">
+            ${it.source === 'manual'
+              ? `<button onclick="deleteBucketTxn('${it.refId}')" class="text-[var(--error)] hover:underline cursor-pointer">Hapus</button>`
+              : `<span class="text-[var(--muted-foreground)]">${it.source === 'income' ? 'Dari Gaji' : it.source === 'expense' ? 'Biaya Hidup' : 'Piutang'}</span>`}
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderExpensesTab() {
+      const bh = computeBucketSummary('biaya_hidup');
+      const curYM = todayIso().slice(0, 7);
+      const expMonth = state.expenses.filter(e => e.date?.startsWith(curYM)).reduce((s, e) => s + Number(e.amount || 0), 0);
+      const expYearList = state.expenses.filter(e => e.date?.startsWith(ui.selectedYear));
+      const expYear = expYearList.reduce((s, e) => s + Number(e.amount || 0), 0);
+
+      const bigEl = document.getElementById('exp-remaining-big');
+      bigEl.textContent = fmtRp(bh.balance);
+      bigEl.style.color = bh.balance < 0 ? 'var(--error)' : 'var(--foreground)';
+      document.getElementById('exp-formula-hint').textContent =
+        `Total dana masuk pos Biaya Hidup ${fmtRp(bh.totalIn)} \u2212 Total terpakai ${fmtRp(bh.totalOut)}`;
+      document.getElementById('exp-this-month').textContent = fmtRp(expMonth);
+      document.getElementById('exp-year-lbl').textContent = ui.selectedYear;
+      document.getElementById('exp-this-year').textContent = fmtRp(expYear);
+
+      const remainPct = bh.totalIn > 0 ? Math.max(0, Math.min(100, (bh.balance / bh.totalIn) * 100)) : 0;
+      const bar = document.getElementById('exp-progress-bar');
+      bar.style.width = remainPct + '%';
+      bar.style.background = bh.balance <= 0 ? 'var(--error)' : remainPct < 20 ? 'var(--warning)' : 'var(--success)';
+
+      // Category breakdown for selected year
+      const byCat = {};
+      expYearList.forEach(e => { byCat[e.category] = (byCat[e.category] || 0) + Number(e.amount || 0); });
+      const entries = Object.entries(byCat).sort((a, b) => b[1] - a[1]);
+      const colors = getThemeColors();
+      const catEl = document.getElementById('expense-category-bars');
+      if (!entries.length) {
+        catEl.innerHTML = `<div class="py-6 text-center text-[var(--muted-foreground)]">Belum ada pengeluaran pada tahun ${ui.selectedYear}.</div>`;
+      } else {
+        catEl.innerHTML = entries.map(([cat, val], idx) => {
+          const pct = expYear > 0 ? ((val / expYear) * 100).toFixed(1) : '0.0';
+          return `
+            <div class="space-y-1">
+              <div class="flex justify-between gap-2">
+                <span class="truncate">${escapeHtml(cat)}</span>
+                <span class="tabular-nums text-[var(--muted-foreground)] shrink-0">${fmtShortRp(val)} (${pct}%)</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full progress-track overflow-hidden">
+                <div class="h-full rounded-full" style="width:${pct}%; background:${colors.charts[idx % colors.charts.length]}"></div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      renderExpensesTable();
+    }
+
+    function renderExpensesTable() {
+      const q = document.getElementById('search-expenses').value.toLowerCase().trim();
+      const cat = document.getElementById('filter-expense-cat').value;
+      const month = document.getElementById('filter-expense-month').value;
+
+      const filtered = state.expenses
+        .filter(e => {
+          if (!e.date?.startsWith(ui.selectedYear)) return false;
+          if (cat !== 'ALL' && e.category !== cat) return false;
+          if (month !== 'ALL' && e.date.slice(5, 7) !== month) return false;
+          if (q && !e.title.toLowerCase().includes(q) && !(e.note || '').toLowerCase().includes(q)) return false;
+          return true;
+        })
+        .sort((a, b) => b.date.localeCompare(a.date));
+
+      const sub = filtered.reduce((s, e) => s + Number(e.amount || 0), 0);
+      document.getElementById('expenses-filtered-total').textContent = fmtRp(sub);
+
+      const tbody = document.getElementById('expenses-table-body');
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-[var(--muted-foreground)]">Tidak ada data pengeluaran untuk filter ini.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(e => `
+        <tr class="hover:bg-[var(--secondary)]/40 transition">
+          <td class="py-2.5 pr-3 whitespace-nowrap text-[var(--muted-foreground)] tabular-nums">${formatDateId(e.date)}</td>
+          <td class="py-2.5 px-3">
+            <div class="font-medium">${escapeHtml(e.title)}</div>
+            ${e.note ? `<div class="text-[var(--muted-foreground)]">${escapeHtml(e.note)}</div>` : ''}
+          </td>
+          <td class="py-2.5 px-3">${escapeHtml(e.category)}</td>
+          <td class="py-2.5 px-3 text-right font-semibold text-[var(--error)] tabular-nums">&minus;${fmtRp(e.amount)}</td>
+          <td class="py-2.5 pl-3 text-right whitespace-nowrap space-x-2">
+            <button onclick="editExpense('${e.id}')" class="text-[var(--link)] hover:underline cursor-pointer">Ubah</button>
+            <button onclick="deleteExpense('${e.id}')" class="text-[var(--error)] hover:underline cursor-pointer">Hapus</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderIncomeTable() {
+      const q = document.getElementById('search-income').value.toLowerCase().trim();
+      const cat = document.getElementById('filter-income-cat').value;
+      const month = document.getElementById('filter-income-month').value;
+
+      const filtered = state.incomes
+        .filter(i => {
+          if (!i.date?.startsWith(ui.selectedYear)) return false;
+          if (cat !== 'ALL' && i.category !== cat) return false;
+          if (month !== 'ALL' && i.date.slice(5, 7) !== month) return false;
+          if (q && !i.source.toLowerCase().includes(q) && !(i.note || '').toLowerCase().includes(q)) return false;
+          return true;
+        })
+        .sort((a, b) => b.date.localeCompare(a.date));
+
+      const sub = filtered.reduce((s, i) => s + Number(i.amount || 0), 0);
+      document.getElementById('income-filtered-total').textContent = fmtRp(sub);
+
+      const tbody = document.getElementById('income-table-body');
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-[var(--muted-foreground)]">Belum ada catatan penghasilan untuk filter ini.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(i => {
+        let allocBadges = '';
+        if (i.allocations) {
+          const parts = BUCKETS
+            .filter(b => Number(i.allocations[b.id] || 0) > 0)
+            .map(b => `${b.name}: ${fmtShortRp(i.allocations[b.id])}`);
+          if (parts.length) {
+            allocBadges = `<div class="text-[var(--muted-foreground)] mt-0.5">${parts.join(' &middot; ')}</div>`;
+          }
+        }
+        return `
+          <tr class="hover:bg-[var(--secondary)]/40 transition">
+            <td class="py-2.5 pr-3 whitespace-nowrap text-[var(--muted-foreground)] tabular-nums">${formatDateId(i.date)}</td>
+            <td class="py-2.5 px-3">
+              <div class="font-medium">${escapeHtml(i.source)}</div>
+              ${allocBadges}
+              ${i.note ? `<div class="text-[var(--muted-foreground)] italic">${escapeHtml(i.note)}</div>` : ''}
+            </td>
+            <td class="py-2.5 px-3">${escapeHtml(i.category)}</td>
+            <td class="py-2.5 px-3 text-right font-semibold text-[var(--success)] tabular-nums">+${fmtRp(i.amount)}</td>
+            <td class="py-2.5 pl-3 text-right whitespace-nowrap space-x-2">
+              <button onclick="editIncome('${i.id}')" class="text-[var(--link)] hover:underline cursor-pointer">Ubah</button>
+              <button onclick="deleteIncome('${i.id}')" class="text-[var(--error)] hover:underline cursor-pointer">Hapus</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderReceivablesTab() {
+      let sumTotal = 0, sumPaid = 0, sumRem = 0;
+      state.receivables.forEach(r => {
+        const st = computeReceivableStats(r);
+        sumTotal += st.total;
+        sumPaid += st.paid;
+        sumRem += st.remaining;
+      });
+      document.getElementById('rec-sum-total').textContent = fmtRp(sumTotal);
+      document.getElementById('rec-sum-paid').textContent = fmtRp(sumPaid);
+      document.getElementById('rec-sum-remaining').textContent = fmtRp(sumRem);
+
+      const q = document.getElementById('search-receivables').value.toLowerCase().trim();
+      const statusF = document.getElementById('filter-rec-status').value;
+
+      const filtered = state.receivables
+        .map(r => ({ ...r, stats: computeReceivableStats(r) }))
+        .filter(r => {
+          if (statusF === 'ACTIVE' && r.stats.remaining <= 0) return false;
+          if (statusF !== 'ALL' && statusF !== 'ACTIVE' && r.stats.status !== statusF) return false;
+          if (q && !r.borrower.toLowerCase().includes(q) && !(r.note || '').toLowerCase().includes(q)) return false;
+          return true;
+        })
+        .sort((a, b) => (b.stats.remaining > 0 ? 1 : 0) - (a.stats.remaining > 0 ? 1 : 0) || b.date.localeCompare(a.date));
+
+      const container = document.getElementById('receivables-list');
+      if (!filtered.length) {
+        container.innerHTML = `<div class="py-8 text-center text-xs text-[var(--muted-foreground)]">Belum ada data piutang yang cocok.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(r => {
+        const st = r.stats;
+        const pct = st.total > 0 ? Math.min(100, Math.round((st.paid / st.total) * 100)) : 0;
+        const badgeColor = st.status === 'Lunas'
+          ? 'text-[var(--success)] border-[var(--success)]'
+          : st.isOverdue
+            ? 'text-[var(--error)] border-[var(--error)]'
+            : 'text-[var(--warning)] border-[var(--warning)]';
+        const statusLabel = st.isOverdue ? `${st.status} (Lewat Jatuh Tempo)` : st.status;
+
+        const paymentsHtml = (r.payments || []).length
+          ? `<div class="mt-3 pt-2.5 border-t border-[var(--border)] space-y-1.5">
+              <div class="text-[var(--muted-foreground)] font-medium">Riwayat Pembayaran (${r.payments.length}):</div>
+              ${r.payments.map(p => {
+                const bName = BUCKETS.find(b => b.id === p.targetBucket)?.name;
+                return `
+                  <div class="flex items-center justify-between gap-2 text-xs">
+                    <span class="text-[var(--muted-foreground)]">
+                      ${formatDateId(p.date)} ${p.note ? '&middot; ' + escapeHtml(p.note) : ''}
+                      ${bName ? `<span class="text-[var(--primary)]">(&rarr; ${bName})</span>` : ''}
+                    </span>
+                    <div class="flex items-center gap-2 shrink-0">
+                      <span class="font-medium text-[var(--success)] tabular-nums">+${fmtRp(p.amount)}</span>
+                      <button onclick="deleteRecPayment('${r.id}','${p.id}')" class="text-[var(--error)] hover:underline cursor-pointer">&times;</button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>`
+          : '';
+
+        return `
+          <div class="p-4 rounded-xl bg-[var(--background)] border border-[var(--border)] text-xs space-y-2.5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-sm font-semibold">${escapeHtml(r.borrower)}</span>
+                  <span class="px-2 py-0.5 rounded-full border ${badgeColor}">${statusLabel}</span>
+                </div>
+                <div class="text-[var(--muted-foreground)] mt-0.5">
+                  Pinjam: ${formatDateId(r.date)}
+                  ${r.dueDate ? ' &middot; Jatuh Tempo: ' + formatDateId(r.dueDate) : ''}
+                  ${r.note ? ' &middot; ' + escapeHtml(r.note) : ''}
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                ${st.remaining > 0 ? `<button onclick="openRecPayModal('${r.id}')" class="px-3 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 cursor-pointer">Catat Bayar / Cicil</button>` : ''}
+                <button onclick="editReceivable('${r.id}')" class="px-2.5 py-1.5 rounded-lg border border-[var(--border)] hover:bg-[var(--secondary)] cursor-pointer">Ubah</button>
+                <button onclick="deleteReceivable('${r.id}')" class="px-2.5 py-1.5 rounded-lg border border-[var(--border)] text-[var(--error)] hover:bg-[var(--secondary)] cursor-pointer">Hapus</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 pt-1">
+              <div><span class="text-[var(--muted-foreground)] block">Total Pinjaman</span><strong class="tabular-nums">${fmtRp(st.total)}</strong></div>
+              <div><span class="text-[var(--muted-foreground)] block">Terbayar (${pct}%)</span><strong class="text-[var(--success)] tabular-nums">${fmtRp(st.paid)}</strong></div>
+              <div><span class="text-[var(--muted-foreground)] block">Sisa Piutang</span><strong class="${st.remaining > 0 ? 'text-[var(--warning)]' : 'text-[var(--success)]'} tabular-nums">${fmtRp(st.remaining)}</strong></div>
+            </div>
+
+            <div class="w-full h-1.5 rounded-full progress-track overflow-hidden">
+              <div class="h-full rounded-full" style="width:${pct}%; background: var(--success);"></div>
+            </div>
+            ${paymentsHtml}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAssetsTab() {
+      const { grandTotal: bucketsTotal } = computeAllBuckets();
+      const otherTotal = state.assets.reduce((s, a) => s + Number(a.value || 0), 0);
+      const recActive = state.receivables.reduce((s, r) => s + computeReceivableStats(r).remaining, 0);
+
+      document.getElementById('assets-tab-buckets-sum').textContent = fmtRp(bucketsTotal);
+      document.getElementById('assets-tab-other-sum').textContent = fmtRp(otherTotal);
+      document.getElementById('assets-tab-rec-sum').textContent = fmtRp(recActive);
+
+      const q = document.getElementById('search-assets').value.toLowerCase().trim();
+      const cat = document.getElementById('filter-asset-cat').value;
+      const liq = document.getElementById('filter-asset-liq').value;
+
+      const filtered = state.assets
+        .filter(a => {
+          if (cat !== 'ALL' && a.category !== cat) return false;
+          if (liq !== 'ALL' && a.liquidity !== liq) return false;
+          if (q && !a.name.toLowerCase().includes(q) && !(a.note || '').toLowerCase().includes(q)) return false;
+          return true;
+        })
+        .sort((a, b) => b.value - a.value);
+
+      const sub = filtered.reduce((s, a) => s + Number(a.value || 0), 0);
+      document.getElementById('assets-filtered-total').textContent = fmtRp(sub);
+
+      const tbody = document.getElementById('assets-table-body');
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-[var(--muted-foreground)]">Belum ada aset lainnya.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(a => {
+        const pct = otherTotal > 0 ? ((a.value / otherTotal) * 100).toFixed(1) : '0.0';
+        const liqClass = a.liquidity === 'Likuid' ? 'text-[var(--success)]' : a.liquidity === 'Semi-Likuid' ? 'text-[var(--warning)]' : 'text-[var(--muted-foreground)]';
+        return `
+          <tr class="hover:bg-[var(--secondary)]/40 transition">
+            <td class="py-2.5 pr-3">
+              <div class="font-medium">${escapeHtml(a.name)}</div>
+              ${a.note ? `<div class="text-[var(--muted-foreground)]">${escapeHtml(a.note)}</div>` : ''}
+            </td>
+            <td class="py-2.5 px-3">${escapeHtml(a.category)}</td>
+            <td class="py-2.5 px-3 font-medium ${liqClass}">${escapeHtml(a.liquidity)}</td>
+            <td class="py-2.5 px-3 text-right font-semibold tabular-nums">${fmtRp(a.value)}</td>
+            <td class="py-2.5 px-3 text-right tabular-nums text-[var(--muted-foreground)]">${pct}%</td>
+            <td class="py-2.5 pl-3 text-right whitespace-nowrap space-x-2">
+              <button onclick="editAsset('${a.id}')" class="text-[var(--link)] hover:underline cursor-pointer">Ubah</button>
+              <button onclick="deleteAsset('${a.id}')" class="text-[var(--error)] hover:underline cursor-pointer">Hapus</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // ==================== CHARTS ====================
+    let cashflowSlots = [];
+
+    function drawCharts() {
+      drawWealthDonut();
+      drawCashflowChart();
+    }
+
+    function drawWealthDonut() {
+      const canvas = document.getElementById('chart-wealth');
+      const dpr = window.devicePixelRatio || 1;
+      const size = 176;
+      canvas.width = size * dpr;
+      canvas.height = size * dpr;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, size, size);
+
+      const colors = getThemeColors();
+      const { map: bMap } = computeAllBuckets();
+
+      const slices = [];
+      BUCKETS.forEach(b => {
+        const val = Math.max(0, bMap[b.id].balance);
+        if (val > 0) slices.push([b.name, val]);
+      });
+
+      const otherAssets = state.assets.reduce((s, a) => s + Math.max(0, Number(a.value || 0)), 0);
+      if (otherAssets > 0) slices.push(['Aset Lainnya', otherAssets]);
+
+      const recActive = state.receivables.reduce((s, r) => s + computeReceivableStats(r).remaining, 0);
+      if (recActive > 0) slices.push(['Piutang Aktif', recActive]);
+
+      slices.sort((a, b) => b[1] - a[1]);
+      const total = slices.reduce((s, [, v]) => s + v, 0);
+      document.getElementById('donut-center-total').textContent = fmtShortRp(total);
+
+      const cx = size / 2, cy = size / 2, outerR = 78, innerR = 50;
+      if (total === 0) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+        ctx.arc(cx, cy, innerR, 0, Math.PI * 2, true);
+        ctx.fillStyle = colors.border;
+        ctx.fill();
+        document.getElementById('wealth-legend').innerHTML = `<div class="text-[var(--muted-foreground)]">Belum ada saldo kekayaan.</div>`;
+        return;
+      }
+
+      let start = -Math.PI / 2;
+      slices.forEach(([, val], idx) => {
+        const angle = (val / total) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerR, start, start + angle);
+        ctx.arc(cx, cy, innerR, start + angle, start, true);
+        ctx.closePath();
+        ctx.fillStyle = colors.charts[idx % colors.charts.length];
+        ctx.fill();
+        start += angle;
+      });
+
+      document.getElementById('wealth-legend').innerHTML = slices.map(([label, val], idx) => {
+        const pct = ((val / total) * 100).toFixed(1);
+        return `
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="w-2.5 h-2.5 rounded-sm shrink-0" style="background:${colors.charts[idx % colors.charts.length]}"></span>
+              <span class="truncate">${escapeHtml(label)}</span>
+            </div>
+            <span class="tabular-nums text-[var(--muted-foreground)] shrink-0">${pct}% (${fmtShortRp(val)})</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function drawCashflowChart(hoverIdx = -1) {
+      const canvas = document.getElementById('chart-cashflow');
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const width = Math.max(300, Math.floor(rect.width));
+      const height = Math.max(170, Math.floor(rect.height));
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+
+      const colors = getThemeColors();
+      const incM = new Array(12).fill(0);
+      const expM = new Array(12).fill(0);
+
+      state.incomes.filter(i => i.date?.startsWith(ui.selectedYear)).forEach(i => {
+        const m = parseInt(i.date.slice(5, 7), 10) - 1;
+        if (m >= 0 && m < 12) incM[m] += Number(i.amount || 0);
+      });
+      state.expenses.filter(e => e.date?.startsWith(ui.selectedYear)).forEach(e => {
+        const m = parseInt(e.date.slice(5, 7), 10) - 1;
+        if (m >= 0 && m < 12) expM[m] += Number(e.amount || 0);
+      });
+
+      document.getElementById('cashflow-chart-subtitle').textContent = `Perbandingan bulanan tahun ${ui.selectedYear}`;
+
+      const maxVal = Math.max(...incM, ...expM, 1000000);
+      const padL = 54, padR = 10, padT = 10, padB = 24;
+      const plotW = width - padL - padR;
+      const plotH = height - padT - padB;
+
+      ctx.font = '11px system-ui, -apple-system, sans-serif';
+      ctx.textBaseline = 'middle';
+      for (let s = 0; s <= 4; s++) {
+        const val = (maxVal / 4) * s;
+        const y = padT + plotH - (plotH * (s / 4));
+        ctx.strokeStyle = colors.border;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(padL, y);
+        ctx.lineTo(width - padR, y);
+        ctx.stroke();
+
+        ctx.fillStyle = colors.muted;
+        ctx.textAlign = 'right';
+        ctx.fillText(fmtShortRp(val).replace('Rp ', ''), padL - 8, y);
+      }
+
+      const slotW = plotW / 12;
+      const barW = Math.max(5, Math.min(16, slotW * 0.34));
+      cashflowSlots = [];
+
+      for (let i = 0; i < 12; i++) {
+        const cx = padL + i * slotW + slotW / 2;
+        cashflowSlots.push({ x1: padL + i * slotW, x2: padL + (i + 1) * slotW, idx: i, inc: incM[i], exp: expM[i] });
+
+        if (i === hoverIdx) {
+          ctx.fillStyle = colors.border;
+          ctx.globalAlpha = 0.25;
+          ctx.fillRect(padL + i * slotW + 2, padT, slotW - 4, plotH);
+          ctx.globalAlpha = 1;
+        }
+
+        const h1 = (incM[i] / maxVal) * plotH;
+        const h2 = (expM[i] / maxVal) * plotH;
+
+        ctx.fillStyle = colors.charts[0];
+        if (h1 > 0) ctx.fillRect(cx - barW - 1, padT + plotH - h1, barW, h1);
+
+        ctx.fillStyle = colors.charts[4];
+        if (h2 > 0) ctx.fillRect(cx + 1, padT + plotH - h2, barW, h2);
+
+        ctx.fillStyle = i === hoverIdx ? colors.fg : colors.muted;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillText(MONTH_NAMES[i], cx, padT + plotH + 7);
+      }
+    }
+
+    // ==================== MODALS & ACTIONS ====================
+    function switchTab(tab) {
+      ui.activeTab = tab;
+      document.querySelectorAll('.nav-tab, .mobile-nav-btn').forEach(btn => {
+        btn.setAttribute('aria-selected', btn.dataset.tab === tab ? 'true' : 'false');
+      });
+      ['overview', 'buckets', 'expenses', 'income', 'receivables', 'assets'].forEach(t => {
+        document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab);
+      });
+      if (tab === 'overview') requestAnimationFrame(() => drawCharts());
+    }
+    window.switchTab = switchTab;
+
+    function closeModal(id) {
+      document.getElementById(id).close();
+    }
+    window.closeModal = closeModal;
+
+    // -- Income Modal + Split --
+    function buildIncomeSplitInputs(values) {
+      const wrap = document.getElementById('income-split-inputs');
+      wrap.innerHTML = BUCKETS.map(b => `
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">${b.name}</label>
+          <input data-split-bucket="${b.id}" type="number" min="0" step="1" value="${values[b.id] ?? 0}"
+            class="income-split-input w-full px-2.5 py-1.5 rounded-lg bg-[var(--card)] border border-[var(--border)] tabular-nums" />
+        </div>
+      `).join('');
+      wrap.querySelectorAll('.income-split-input').forEach(inp => {
+        inp.addEventListener('input', updateIncomeSplitSummary);
+      });
+      updateIncomeSplitSummary();
+    }
+
+    function updateIncomeSplitSummary() {
+      const enabled = document.getElementById('income-enable-split').checked;
+      document.getElementById('income-split-fields').classList.toggle('hidden', !enabled);
+      if (!enabled) return;
+
+      const totalIncome = Number(document.getElementById('income-amount').value || 0);
+      let allocated = 0;
+      document.querySelectorAll('.income-split-input').forEach(inp => {
+        allocated += Number(inp.value || 0);
+      });
+      document.getElementById('income-split-total').textContent = fmtRp(allocated);
+      const diff = totalIncome - allocated;
+      const diffEl = document.getElementById('income-split-diff');
+      if (diff === 0) {
+        diffEl.innerHTML = `<span class="text-[var(--success)]">Pas 100% teralokasi ke 5 pos</span>`;
+      } else if (diff > 0) {
+        diffEl.innerHTML = `<span class="text-[var(--muted-foreground)]">Belum dialokasikan: ${fmtRp(diff)}</span>`;
+      } else {
+        diffEl.innerHTML = `<span class="text-[var(--error)]">Melebihi jumlah penghasilan sebesar ${fmtRp(Math.abs(diff))}</span>`;
+      }
+    }
+
+    window.openIncomeModal = (defaultSalary = true) => {
+      document.getElementById('modal-income-title').textContent = 'Terima Gaji / Catat Penghasilan';
+      document.getElementById('form-income').reset();
+      document.getElementById('income-id').value = '';
+      document.getElementById('income-date').value = todayIso();
+      document.getElementById('income-category').value = defaultSalary ? 'Gaji Utama' : INCOME_CATEGORIES[0];
+      document.getElementById('income-source').value = defaultSalary ? 'Gaji Bulanan' : '';
+      document.getElementById('income-enable-split').checked = defaultSalary;
+      buildIncomeSplitInputs(computeAllocationPreview(0));
+      document.getElementById('modal-income').showModal();
+    };
+
+    window.editIncome = (id) => {
+      const inc = state.incomes.find(x => x.id === id);
+      if (!inc) return;
+      document.getElementById('modal-income-title').textContent = 'Ubah Penghasilan & Pembagian';
+      document.getElementById('income-id').value = inc.id;
+      document.getElementById('income-date').value = inc.date;
+      document.getElementById('income-category').value = inc.category;
+      document.getElementById('income-source').value = inc.source;
+      document.getElementById('income-amount').value = inc.amount;
+      document.getElementById('income-note').value = inc.note || '';
+      const hasAlloc = inc.allocations && Object.values(inc.allocations).some(v => Number(v) > 0);
+      document.getElementById('income-enable-split').checked = Boolean(hasAlloc);
+      buildIncomeSplitInputs(inc.allocations || computeAllocationPreview(inc.amount));
+      document.getElementById('modal-income').showModal();
+    };
+
+    window.deleteIncome = (id) => {
+      askConfirm('Hapus Penghasilan?', 'Menghapus catatan gaji/penghasilan juga akan mengurangi saldo Pos Tabungan yang berasal dari catatan ini.', () => {
+        state.incomes = state.incomes.filter(x => x.id !== id);
+        saveUserData();
+        renderAll();
+        showToast('Penghasilan dihapus & saldo pos diperbarui');
+      });
+    };
+
+    // -- Expense Modal --
+    function updateExpensePreview() {
+      const editId = document.getElementById('expense-id').value;
+      const bh = computeBucketSummary('biaya_hidup');
+      let currentBal = bh.balance;
+      if (editId) {
+        const old = state.expenses.find(e => e.id === editId);
+        if (old) currentBal += Number(old.amount || 0);
+      }
+      document.getElementById('modal-exp-current-bal').textContent = fmtRp(currentBal);
+      const amt = Number(document.getElementById('expense-amount').value || 0);
+      const after = currentBal - amt;
+      const afterEl = document.getElementById('modal-exp-after-bal');
+      afterEl.innerHTML = amt > 0
+        ? `Sisa Biaya Hidup setelah pengeluaran ini: <strong class="${after < 0 ? 'text-[var(--error)]' : 'text-[var(--success)]'}">${fmtRp(after)}</strong>`
+        : '';
+    }
+
+    window.openExpenseModal = () => {
+      document.getElementById('modal-expense-title').textContent = 'Catat Pengeluaran Biaya Hidup';
+      document.getElementById('form-expense').reset();
+      document.getElementById('expense-id').value = '';
+      document.getElementById('expense-date').value = todayIso();
+      updateExpensePreview();
+      document.getElementById('modal-expense').showModal();
+    };
+
+    window.editExpense = (id) => {
+      const e = state.expenses.find(x => x.id === id);
+      if (!e) return;
+      document.getElementById('modal-expense-title').textContent = 'Ubah Pengeluaran Biaya Hidup';
+      document.getElementById('expense-id').value = e.id;
+      document.getElementById('expense-date').value = e.date;
+      document.getElementById('expense-category').value = e.category;
+      document.getElementById('expense-title').value = e.title;
+      document.getElementById('expense-amount').value = e.amount;
+      document.getElementById('expense-note').value = e.note || '';
+      updateExpensePreview();
+      document.getElementById('modal-expense').showModal();
+    };
+
+    window.deleteExpense = (id) => {
+      askConfirm('Hapus Pengeluaran?', 'Saldo Pos Biaya Hidup akan dikembalikan sesuai nominal pengeluaran ini.', () => {
+        state.expenses = state.expenses.filter(x => x.id !== id);
+        saveUserData();
+        renderAll();
+        showToast('Pengeluaran dihapus & sisa Biaya Hidup dikembalikan');
+      });
+    };
+
+    // -- Bucket Txn & Initial --
+    window.openBucketTxnModal = (bucketId = 'kontrakan') => {
+      document.getElementById('form-bucket-txn').reset();
+      document.getElementById('btxn-date').value = todayIso();
+      document.getElementById('btxn-bucket').value = bucketId;
+      document.getElementById('btxn-target-bucket').value = BUCKETS.find(b => b.id !== bucketId)?.id || 'biaya_hidup';
+      document.getElementById('btxn-kind').value = 'out';
+      toggleBucketTransferUi();
+      document.getElementById('modal-bucket-txn').showModal();
+    };
+
+    function toggleBucketTransferUi() {
+      const kind = document.getElementById('btxn-kind').value;
+      document.getElementById('btxn-target-wrap').classList.toggle('hidden', kind !== 'transfer');
+      document.getElementById('btxn-bucket-label').textContent = kind === 'transfer' ? 'Dari Pos Tabungan' : 'Pos Tabungan';
+    }
+
+    window.deleteBucketTxn = (id) => {
+      const tx = state.bucketTxns.find(x => x.id === id);
+      if (!tx) return;
+      askConfirm('Hapus Mutasi?', 'Saldo pos tabungan akan disesuaikan kembali.', () => {
+        if (tx.transferGroupId) {
+          state.bucketTxns = state.bucketTxns.filter(x => x.transferGroupId !== tx.transferGroupId);
+        } else {
+          state.bucketTxns = state.bucketTxns.filter(x => x.id !== id);
+        }
+        saveUserData();
+        renderAll();
+        showToast('Mutasi pos tabungan dihapus');
+      });
+    };
+
+    window.openBucketInitialModal = (bucketId) => {
+      const b = BUCKETS.find(x => x.id === bucketId);
+      if (!b) return;
+      document.getElementById('modal-bi-title').textContent = `Saldo Awal: ${b.name}`;
+      document.getElementById('bi-bucket-id').value = bucketId;
+      document.getElementById('bi-amount').value = state.bucketInitials[bucketId] || 0;
+      document.getElementById('modal-bucket-initial').showModal();
+    };
+
+    // -- Receivables --
+    window.openReceivableModal = () => {
+      document.getElementById('modal-rec-title').textContent = 'Tambah Piutang';
+      document.getElementById('form-receivable').reset();
+      document.getElementById('rec-id').value = '';
+      document.getElementById('rec-date').value = todayIso();
+      document.getElementById('modal-receivable').showModal();
+    };
+
+    window.editReceivable = (id) => {
+      const r = state.receivables.find(x => x.id === id);
+      if (!r) return;
+      document.getElementById('modal-rec-title').textContent = 'Ubah Piutang';
+      document.getElementById('rec-id').value = r.id;
+      document.getElementById('rec-borrower').value = r.borrower;
+      document.getElementById('rec-date').value = r.date;
+      document.getElementById('rec-due').value = r.dueDate || '';
+      document.getElementById('rec-amount').value = r.amount;
+      document.getElementById('rec-note').value = r.note || '';
+      document.getElementById('modal-receivable').showModal();
+    };
+
+    window.deleteReceivable = (id) => {
+      askConfirm('Hapus Piutang?', 'Data piutang beserta riwayat cicilannya akan dihapus permanen.', () => {
+        state.receivables = state.receivables.filter(x => x.id !== id);
+        saveUserData();
+        renderAll();
+        showToast('Piutang dihapus');
+      });
+    };
+
+    window.openRecPayModal = (id) => {
+      const r = state.receivables.find(x => x.id === id);
+      if (!r) return;
+      const st = computeReceivableStats(r);
+      document.getElementById('form-rec-pay').reset();
+      document.getElementById('recpay-id').value = r.id;
+      document.getElementById('recpay-borrower').textContent = r.borrower;
+      document.getElementById('recpay-remaining').textContent = fmtRp(st.remaining);
+      document.getElementById('recpay-date').value = todayIso();
+      document.getElementById('recpay-amount').value = st.remaining;
+      document.getElementById('recpay-amount').max = st.remaining;
+      document.getElementById('modal-rec-pay').showModal();
+    };
+
+    window.deleteRecPayment = (recId, payId) => {
+      askConfirm('Hapus Pembayaran Cicilan?', 'Sisa piutang akan bertambah kembali sesuai nominal ini.', () => {
+        const r = state.receivables.find(x => x.id === recId);
+        if (r) {
+          r.payments = (r.payments || []).filter(p => p.id !== payId);
+          saveUserData();
+          renderAll();
+          showToast('Pembayaran cicilan dihapus');
+        }
+      });
+    };
+
+    // -- Assets --
+    window.openAssetModal = () => {
+      document.getElementById('modal-asset-title').textContent = 'Tambah Aset Lainnya';
+      document.getElementById('form-asset').reset();
+      document.getElementById('asset-id').value = '';
+      document.getElementById('modal-asset').showModal();
+    };
+
+    window.editAsset = (id) => {
+      const a = state.assets.find(x => x.id === id);
+      if (!a) return;
+      document.getElementById('modal-asset-title').textContent = 'Ubah Aset';
+      document.getElementById('asset-id').value = a.id;
+      document.getElementById('asset-name').value = a.name;
+      document.getElementById('asset-category').value = a.category;
+      document.getElementById('asset-liquidity').value = a.liquidity;
+      document.getElementById('asset-value').value = a.value;
+      document.getElementById('asset-note').value = a.note || '';
+      document.getElementById('modal-asset').showModal();
+    };
+
+    window.deleteAsset = (id) => {
+      askConfirm('Hapus Aset?', 'Item aset ini akan dihapus dari daftar kekayaan Anda.', () => {
+        state.assets = state.assets.filter(x => x.id !== id);
+        saveUserData();
+        renderAll();
+        showToast('Aset dihapus');
+      });
+    };
+
+    // ==================== EVENT LISTENERS ====================
+    // Auth Tabs
+    document.getElementById('auth-tab-login').addEventListener('click', () => {
+      document.getElementById('auth-tab-login').setAttribute('aria-selected', 'true');
+      document.getElementById('auth-tab-register').setAttribute('aria-selected', 'false');
+      document.getElementById('form-login').classList.remove('hidden');
+      document.getElementById('form-register').classList.add('hidden');
+      document.getElementById('auth-error').classList.add('hidden');
+    });
+
+    document.getElementById('auth-tab-register').addEventListener('click', () => {
+      document.getElementById('auth-tab-register').setAttribute('aria-selected', 'true');
+      document.getElementById('auth-tab-login').setAttribute('aria-selected', 'false');
+      document.getElementById('form-register').classList.remove('hidden');
+      document.getElementById('form-login').classList.add('hidden');
+      document.getElementById('auth-error').classList.add('hidden');
+    });
+
+    document.getElementById('form-login').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('login-username').value.trim().toLowerCase();
+      const password = document.getElementById('login-password').value;
+      const remember = document.getElementById('login-remember').checked;
+      const users = getUsers();
+      const user = users[username];
+      if (!user) return showAuthError('Username tidak ditemukan. Silakan daftar akun baru terlebih dahulu.');
+      const hash = await hashPassword(username, password);
+      if (hash !== user.passwordHash) return showAuthError('Password / PIN salah.');
+      document.getElementById('auth-error').classList.add('hidden');
+      enterApp(user, remember);
+      showToast(`Selamat datang kembali, ${user.fullName || user.username}!`);
+    });
+
+    document.getElementById('btn-demo-login').addEventListener('click', async () => {
+      await ensureDemoAccount();
+      const users = getUsers();
+      enterApp(users['demo'], true);
+      showToast('Masuk menggunakan Akun Demo');
+    });
+
+    document.getElementById('form-register').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fullName = document.getElementById('reg-fullname').value.trim();
+      const username = document.getElementById('reg-username').value.trim().toLowerCase().replace(/\s+/g, '');
+      const password = document.getElementById('reg-password').value;
+      const confirm = document.getElementById('reg-confirm').value;
+      const withSample = document.getElementById('reg-with-sample').checked;
+
+      if (!/^[a-z0-9_.-]{3,}$/.test(username)) {
+        return showAuthError('Username minimal 3 karakter (huruf kecil, angka, titik, atau underscore).');
+      }
+      if (password !== confirm) {
+        return showAuthError('Konfirmasi password tidak cocok.');
+      }
+      const users = getUsers();
+      if (users[username]) {
+        return showAuthError('Username sudah terdaftar. Gunakan username lain.');
+      }
+      const newUser = {
+        username,
+        fullName: fullName || username,
+        passwordHash: await hashPassword(username, password),
+        createdAt: new Date().toISOString()
+      };
+      users[username] = newUser;
+      saveUsers(users);
+      localStorage.setItem(DATA_PREFIX + username, JSON.stringify(withSample ? createSampleData() : createEmptyData()));
+      document.getElementById('auth-error').classList.add('hidden');
+      enterApp(newUser, true);
+      showToast(`Akun @${username} berhasil dibuat!`);
+    });
+
+    // Header Quick Buttons
+    document.getElementById('btn-quick-salary').addEventListener('click', () => openIncomeModal(true));
+    document.getElementById('btn-quick-expense').addEventListener('click', () => openExpenseModal());
+    document.getElementById('btn-quick-receivable').addEventListener('click', () => openReceivableModal());
+
+    // Navigation Tabs
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    // Income Form & Split Reactivity
+    document.getElementById('income-amount').addEventListener('input', () => {
+      const editId = document.getElementById('income-id').value;
+      if (!editId && document.getElementById('income-enable-split').checked) {
+        buildIncomeSplitInputs(computeAllocationPreview(document.getElementById('income-amount').value));
+      } else {
+        updateIncomeSplitSummary();
+      }
+    });
+    document.getElementById('income-enable-split').addEventListener('change', updateIncomeSplitSummary);
+    document.getElementById('btn-recalc-split').addEventListener('click', () => {
+      buildIncomeSplitInputs(computeAllocationPreview(document.getElementById('income-amount').value));
+    });
+
+    document.getElementById('form-income').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('income-id').value;
+      const enableSplit = document.getElementById('income-enable-split').checked;
+      let allocations = null;
+      if (enableSplit) {
+        allocations = {};
+        document.querySelectorAll('.income-split-input').forEach(inp => {
+          allocations[inp.dataset.splitBucket] = Math.max(0, Number(inp.value || 0));
+        });
+      }
+      const item = {
+        id: id || uid(),
+        date: document.getElementById('income-date').value,
+        category: document.getElementById('income-category').value,
+        source: document.getElementById('income-source').value.trim(),
+        amount: Number(document.getElementById('income-amount').value) || 0,
+        note: document.getElementById('income-note').value.trim(),
+        allocations
+      };
+      if (id) {
+        const idx = state.incomes.findIndex(x => x.id === id);
+        if (idx >= 0) state.incomes[idx] = item;
+      } else {
+        state.incomes.push(item);
+      }
+      saveUserData();
+      closeModal('modal-income');
+      renderAll();
+      showToast(enableSplit ? 'Penghasilan disimpan & langsung dibagi ke 5 Pos Tabungan!' : 'Penghasilan berhasil disimpan');
+    });
+
+    // Expense Form
+    document.getElementById('expense-amount').addEventListener('input', updateExpensePreview);
+    document.getElementById('form-expense').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('expense-id').value;
+      const item = {
+        id: id || uid(),
+        date: document.getElementById('expense-date').value,
+        category: document.getElementById('expense-category').value,
+        title: document.getElementById('expense-title').value.trim(),
+        amount: Number(document.getElementById('expense-amount').value) || 0,
+        note: document.getElementById('expense-note').value.trim()
+      };
+      if (id) {
+        const idx = state.expenses.findIndex(x => x.id === id);
+        if (idx >= 0) state.expenses[idx] = item;
+      } else {
+        state.expenses.push(item);
+      }
+      saveUserData();
+      closeModal('modal-expense');
+      renderAll();
+      const bh = computeBucketSummary('biaya_hidup');
+      showToast(`Pengeluaran dicatat. Sisa Biaya Hidup: ${fmtRp(bh.balance)}`);
+    });
+
+    // Allocation Rule Form
+    document.getElementById('rule-mode-percent').addEventListener('click', () => {
+      ui.ruleMode = 'percent';
+      renderAllocationRuleForm();
+    });
+    document.getElementById('rule-mode-fixed').addEventListener('click', () => {
+      ui.ruleMode = 'fixed';
+      renderAllocationRuleForm();
+    });
+    document.getElementById('rule-sim-salary').addEventListener('input', updateRuleSimulation);
+    document.getElementById('form-allocation-rule').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const mode = ui.ruleMode;
+      state.allocationRule.mode = mode;
+      document.querySelectorAll('.rule-val-input').forEach(inp => {
+        const val = Math.max(0, Number(inp.value || 0));
+        if (mode === 'percent') state.allocationRule.percent[inp.dataset.ruleBucket] = val;
+        else state.allocationRule.fixed[inp.dataset.ruleBucket] = val;
+      });
+      saveUserData();
+      renderBucketsTab();
+      showToast('Aturan pembagian gaji disimpan!');
+    });
+
+    // Bucket Txn & Initial Forms
+    document.getElementById('btxn-kind').addEventListener('change', toggleBucketTransferUi);
+    document.getElementById('form-bucket-txn').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const date = document.getElementById('btxn-date').value;
+      const kind = document.getElementById('btxn-kind').value;
+      const bucketId = document.getElementById('btxn-bucket').value;
+      const targetId = document.getElementById('btxn-target-bucket').value;
+      const amount = Number(document.getElementById('btxn-amount').value) || 0;
+      const note = document.getElementById('btxn-note').value.trim();
+
+      if (kind === 'transfer') {
+        if (bucketId === targetId) return showToast('Pos asal dan tujuan tidak boleh sama', 'error');
+        const fromName = BUCKETS.find(b => b.id === bucketId)?.name;
+        const toName = BUCKETS.find(b => b.id === targetId)?.name;
+        const groupId = uid();
+        state.bucketTxns.push(
+          { id: uid(), date, bucketId, type: 'out', amount, note: `Transfer ke ${toName}: ${note}`, transferGroupId: groupId },
+          { id: uid(), date, bucketId: targetId, type: 'in', amount, note: `Transfer dari ${fromName}: ${note}`, transferGroupId: groupId }
+        );
+      } else {
+        state.bucketTxns.push({ id: uid(), date, bucketId, type: kind, amount, note });
+      }
+      saveUserData();
+      closeModal('modal-bucket-txn');
+      renderAll();
+      showToast('Mutasi pos tabungan berhasil dicatat');
+    });
+
+    document.getElementById('form-bucket-initial').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const bId = document.getElementById('bi-bucket-id').value;
+      state.bucketInitials[bId] = Math.max(0, Number(document.getElementById('bi-amount').value || 0));
+      saveUserData();
+      closeModal('modal-bucket-initial');
+      renderAll();
+      showToast('Saldo awal pos tabungan diperbarui');
+    });
+
+    // Receivable Forms
+    document.getElementById('form-receivable').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('rec-id').value;
+      const existing = id ? state.receivables.find(x => x.id === id) : null;
+      const item = {
+        id: id || uid(),
+        borrower: document.getElementById('rec-borrower').value.trim(),
+        date: document.getElementById('rec-date').value,
+        dueDate: document.getElementById('rec-due').value,
+        amount: Number(document.getElementById('rec-amount').value) || 0,
+        note: document.getElementById('rec-note').value.trim(),
+        payments: existing ? (existing.payments || []) : []
+      };
+      if (id) {
+        const idx = state.receivables.findIndex(x => x.id === id);
+        if (idx >= 0) state.receivables[idx] = item;
+      } else {
+        state.receivables.push(item);
+      }
+      saveUserData();
+      closeModal('modal-receivable');
+      renderAll();
+      showToast('Data piutang disimpan');
+    });
+
+    document.getElementById('form-rec-pay').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const recId = document.getElementById('recpay-id').value;
+      const r = state.receivables.find(x => x.id === recId);
+      if (!r) return;
+      const pay = {
+        id: uid(),
+        date: document.getElementById('recpay-date').value,
+        amount: Number(document.getElementById('recpay-amount').value) || 0,
+        targetBucket: document.getElementById('recpay-bucket').value,
+        note: document.getElementById('recpay-note').value.trim()
+      };
+      r.payments = r.payments || [];
+      r.payments.push(pay);
+      saveUserData();
+      closeModal('modal-rec-pay');
+      renderAll();
+      const bName = BUCKETS.find(b => b.id === pay.targetBucket)?.name;
+      showToast(bName ? `Pembayaran dicatat & masuk ke ${bName}` : 'Pembayaran piutang dicatat');
+    });
+
+    // Asset Form
+    document.getElementById('form-asset').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('asset-id').value;
+      const item = {
+        id: id || uid(),
+        name: document.getElementById('asset-name').value.trim(),
+        category: document.getElementById('asset-category').value,
+        liquidity: document.getElementById('asset-liquidity').value,
+        value: Number(document.getElementById('asset-value').value) || 0,
+        note: document.getElementById('asset-note').value.trim()
+      };
+      if (id) {
+        const idx = state.assets.findIndex(x => x.id === id);
+        if (idx >= 0) state.assets[idx] = item;
+      } else {
+        state.assets.push(item);
+      }
+      saveUserData();
+      closeModal('modal-asset');
+      renderAll();
+      showToast('Aset berhasil disimpan');
+    });
+
+    // Change Password Form
+    document.getElementById('form-password').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const oldPwd = document.getElementById('pwd-old').value;
+      const newPwd = document.getElementById('pwd-new').value;
+      const confirmPwd = document.getElementById('pwd-confirm').value;
+      const errEl = document.getElementById('pwd-error');
+
+      if (newPwd !== confirmPwd) {
+        errEl.textContent = 'Konfirmasi password baru tidak cocok.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+      const users = getUsers();
+      const user = users[currentUser.username];
+      const oldHash = await hashPassword(currentUser.username, oldPwd);
+      if (oldHash !== user.passwordHash) {
+        errEl.textContent = 'Password saat ini salah.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+      user.passwordHash = await hashPassword(currentUser.username, newPwd);
+      saveUsers(users);
+      currentUser = user;
+      errEl.classList.add('hidden');
+      closeModal('modal-password');
+      showToast('Password berhasil diperbarui');
+    });
+
+    // Filters
+    document.getElementById('filter-year').addEventListener('change', (e) => {
+      ui.selectedYear = e.target.value;
+      renderAll();
+    });
+    document.getElementById('filter-bucket-ledger').addEventListener('change', renderBucketLedger);
+    ['search-expenses', 'filter-expense-cat', 'filter-expense-month'].forEach(id => {
+      document.getElementById(id).addEventListener('input', renderExpensesTable);
+    });
+    ['search-income', 'filter-income-cat', 'filter-income-month'].forEach(id => {
+      document.getElementById(id).addEventListener('input', renderIncomeTable);
+    });
+    ['search-receivables', 'filter-rec-status'].forEach(id => {
+      document.getElementById(id).addEventListener('input', renderReceivablesTab);
+    });
+    ['search-assets', 'filter-asset-cat', 'filter-asset-liq'].forEach(id => {
+      document.getElementById(id).addEventListener('input', renderAssetsTab);
+    });
+
+    // Account & Data Menu
+    const dataMenu = document.getElementById('data-menu');
+    document.getElementById('btn-data-menu').addEventListener('click', (e) => {
+      e.stopPropagation();
+      dataMenu.classList.toggle('hidden');
+    });
+    document.addEventListener('click', () => dataMenu.classList.add('hidden'));
+
+    document.getElementById('btn-change-password').addEventListener('click', () => {
+      document.getElementById('form-password').reset();
+      document.getElementById('pwd-error').classList.add('hidden');
+      document.getElementById('modal-password').showModal();
+    });
+
+    document.getElementById('btn-logout').addEventListener('click', logoutUser);
+
+    document.getElementById('btn-export-json').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      downloadBlob(blob, `laporan-keuangan-${currentUser.username}-${todayIso()}.json`);
+      showToast('Backup JSON berhasil diunduh');
+    });
+
+    document.getElementById('btn-export-csv').addEventListener('click', () => {
+      const rows = [['Bagian', 'Tanggal/Status', 'Nama/Sumber', 'Kategori/Detail', 'Nominal (IDR)', 'Catatan']];
+      const { map: bMap } = computeAllBuckets();
+      BUCKETS.forEach(b => rows.push(['Pos Tabungan', 'Saldo Saat Ini', b.name, b.desc, bMap[b.id].balance, '']));
+      state.assets.forEach(a => rows.push(['Aset Lainnya', a.liquidity, a.name, a.category, a.value, a.note || '']));
+      state.incomes.forEach(i => rows.push(['Penghasilan', i.date, i.source, i.category, i.amount, i.note || '']));
+      state.expenses.forEach(e => rows.push(['Pengeluaran Biaya Hidup', e.date, e.title, e.category, -e.amount, e.note || '']));
+      state.receivables.forEach(r => {
+        const st = computeReceivableStats(r);
+        rows.push(['Piutang', st.status, r.borrower, `Total ${r.amount} | Terbayar ${st.paid}`, st.remaining, r.note || '']);
+      });
+      const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n');
+      downloadBlob(new Blob([csv], { type: 'text/csv;charset=utf-8;' }), `laporan-keuangan-${currentUser.username}-${todayIso()}.csv`);
+      showToast('Laporan CSV berhasil diunduh');
+    });
+
+    document.getElementById('input-import-json').addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          const base = createEmptyData();
+          state = {
+            bucketInitials: { ...base.bucketInitials, ...(parsed.bucketInitials || {}) },
+            allocationRule: parsed.allocationRule || structuredClone(DEFAULT_RULE),
+            assets: Array.isArray(parsed.assets) ? parsed.assets : [],
+            incomes: Array.isArray(parsed.incomes) ? parsed.incomes : [],
+            expenses: Array.isArray(parsed.expenses) ? parsed.expenses : [],
+            receivables: Array.isArray(parsed.receivables) ? parsed.receivables : [],
+            bucketTxns: Array.isArray(parsed.bucketTxns) ? parsed.bucketTxns : []
+          };
+          saveUserData();
+          renderAll();
+          showToast('Data backup JSON berhasil diimpor');
+        } catch {
+          showToast('File JSON tidak valid', 'error');
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    });
+
+    document.getElementById('btn-load-sample').addEventListener('click', () => {
+      askConfirm('Muat Data Contoh?', 'Data saat ini pada akun ini akan diganti dengan data contoh.', () => {
+        state = createSampleData();
+        saveUserData();
+        renderAll();
+        showToast('Data contoh dimuat');
+      });
+    });
+
+    document.getElementById('btn-clear-data').addEventListener('click', () => {
+      askConfirm('Kosongkan Semua Data?', 'Seluruh data aset, pos tabungan, penghasilan, pengeluaran, dan piutang pada akun ini akan dikosongkan.', () => {
+        state = createEmptyData();
+        saveUserData();
+        renderAll();
+        showToast('Semua data akun dikosongkan');
+      });
+    });
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Cashflow Chart Hover
+    const cfCanvas = document.getElementById('chart-cashflow');
+    cfCanvas.addEventListener('mousemove', (e) => {
+      const rect = cfCanvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const hit = cashflowSlots.find(s => x >= s.x1 && x <= s.x2);
+      const info = document.getElementById('chart-hover-info');
+      if (hit) {
+        info.textContent = `${MONTH_FULL[hit.idx]} — Penghasilan: ${fmtRp(hit.inc)} | Biaya Hidup: ${fmtRp(hit.exp)}`;
+        drawCashflowChart(hit.idx);
+      } else {
+        info.textContent = '';
+        drawCashflowChart(-1);
+      }
+    });
+    cfCanvas.addEventListener('mouseleave', () => {
+      document.getElementById('chart-hover-info').textContent = '';
+      drawCashflowChart(-1);
+    });
+
+    window.addEventListener('resize', () => {
+      if (currentUser && ui.activeTab === 'overview') drawCharts();
+    });
+    window.addEventListener('themechange', () => {
+      if (currentUser && ui.activeTab === 'overview') drawCharts();
+    });
+
+    // Mobile Bottom Navigation
+    document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTab(btn.dataset.tab);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Standalone Light / Dark Theme Switcher
+    const THEME_KEY = 'pf_app_theme_v2';
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      const icon = document.getElementById('theme-icon');
+      if (icon) icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#0b1120' : '#2563eb');
+      if (currentUser && ui.activeTab === 'overview') {
+        requestAnimationFrame(() => drawCharts());
+      }
+    }
+    const savedTheme = localStorage.getItem(THEME_KEY) || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
+
+    document.getElementById('btn-theme-toggle').addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
+
+    // ==================== INIT ====================
+    (async function init() {
+      populateStaticSelects();
+      await ensureDemoAccount();
+
+      // Check existing session
+      const rawSess = localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY);
+      if (rawSess) {
+        try {
+          const { username } = JSON.parse(rawSess);
+          const users = getUsers();
+          if (users[username]) {
+            enterApp(users[username], Boolean(localStorage.getItem(SESSION_KEY)));
+            return;
+          }
+        } catch {}
+      }
+      document.getElementById('auth-screen').classList.remove('hidden');
+      document.getElementById('app-shell').classList.add('hidden');
+      document.getElementById('mobile-bottom-nav').classList.add('hidden');
+    })();
+  </script>
+</body>
+</html>
